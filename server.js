@@ -2,6 +2,7 @@ const express = require('express')
 const next = require('next')
 const graphqlHttp = require('express-graphql');
 const { buildSchema } = require('graphql');
+const mongoose = require('mongoose');
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -63,8 +64,17 @@ nextApp.prepare().then(() => {
     return handle(req, res)
   })
 
-  app.listen(port, err => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+  mongoose
+    .connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev`, { useNewUrlParser: true, useUnifiedTopology: true }
+    )
+    .then(
+      app.listen(port, err => {
+        if (err) throw err
+        console.log(`> Connected to MongoDB, server ready on http://localhost:${port}`)
+      })
+    )
+    .catch(err => {
+      console.log(err)
+    })
+  
 })
