@@ -9,8 +9,11 @@ const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
 
-// Creates an instance of our Users class (DB collection).
+// Creates an instance of our models (DB collection).
 const User = require('./models/User');
+const Playlist = require('./model/Playlist');
+const Video = require('./model/Video');
+
 
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
@@ -24,12 +27,29 @@ nextApp.prepare().then(() => {
         firstName: String!
         lastName: String!
         email: String!
+        password: String!
+      }
+
+      type Video {
+        _id: ID!
+        title: String!
+        thumbnailURL: String!
+        videoURL: String!
+        userID: String!
       }
 
       input UserInput{
         firstName: String! 
         lastName: String! 
         email: String!
+        password: String!
+      }
+
+      input VideoInput{
+        title: String! 
+        thumbnailURL: String! 
+        videoURL: String!
+        userID: String!
       }
     
       type RootQuery {
@@ -38,6 +58,7 @@ nextApp.prepare().then(() => {
 
       type RootMutation {
         createUser(userInput: UserInput): User
+        createVideo(videoInput: VideoInput): Video
       }
 
       schema {
@@ -46,19 +67,50 @@ nextApp.prepare().then(() => {
       }
     `),
     rootValue: {
+      // Query all users
       users: () => {
-        return users;
+        return User.find()
+          .then(users => {
+            return users.map(user => {
+              return {...user._doc, _id: user.id };
+            })
+          })
+          .catch(err => {
+            throw err
+          })
       },
+
+      // Create a user
       createUser: (args) => {
         const user = new User({
           firstName: args.userInput.firstName,
           lastName: args.userInput.lastName,
-          email: args.userInput.email
+          email: args.userInput.email,
+          password: args.userInput.password
         })
         return user.save()
           .then(res => {
             console.log(res);
-            return {...res._doc};
+            return {...res._doc, _id: user.id}; // Note .id is a shortcut provided by mongoose which converts the mongoDB objectID to a string - instead of us doing _id: user._doc._id.toString();
+          })
+          .catch(err => {
+            console.log(err);
+            throw err;
+          })
+      },
+
+      //Create a video
+      createVideo: (args) => {
+        const video = new Video({
+          title: args.userInput.title,
+          thumbnailURL: args.userInput.thumbnailURL,
+          videoURL: args.userInput.videoURL,
+          userID: args.userInput.userID
+        })
+        return video.save()
+          .then(res => {
+            console.log(res);
+            return { ...res._doc, _id: video.id };
           })
           .catch(err => {
             console.log(err);
