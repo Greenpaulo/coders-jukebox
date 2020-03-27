@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const autopopulate = require('mongoose-autopopulate');
 
-const PlaylistSchema = new Schema({
+const UserSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -20,10 +21,17 @@ const PlaylistSchema = new Schema({
   },
   jobTitle: String,
   location: String,
-  playlistID: {
+
+  // The videos choosen by the user
+  ownedVideos: [
+    {
     type: Schema.Types.ObjectId,
-    ref: 'playlist'
-  }
+    ref: 'video',
+    autopopulate: true
+    }
+  ]
 });
+
+UserSchema.plugin(autopopulate);
 
 module.exports = mongoose.model('user', UserSchema);
