@@ -14,7 +14,7 @@ module.exports = {
         return { ...user._doc, _id: user.id };
       })
     } catch (err) {
-        throw err
+      throw err
     }
   },
 
@@ -25,22 +25,22 @@ module.exports = {
       return videos.map(video => {
         return { ...video._doc, _id: video.id };
       })
-    } catch(err) {
-        throw err
+    } catch (err) {
+      throw err
     }
   },
 
   // Query all comments
-  // comments: async () => {
-  //   try {
-  //     const comments = await Comment.find();
-  //     return comments.map(comment => {
-  //       return { ...comment._doc, _id: comment.id, createdAt: new Date(comment._doc.createdAt).toISOString(), updatedAt: new Date(comment._doc.updatedAt).toISOString() };
-  //     })
-  //   } catch(err) {
-  //       throw err
-  //   }
-  // },
+  comments: async () => {
+    try {
+      const comments = await Comment.find();
+      return comments.map(comment => {
+        return { ...comment._doc, _id: comment.id, createdAt: new Date(comment._doc.createdAt).toISOString(), updatedAt: new Date(comment._doc.updatedAt).toISOString() };
+      })
+    } catch(err) {
+        throw err
+    }
+  },
 
   // Create a user
   createUser: async (args) => {
@@ -52,7 +52,7 @@ module.exports = {
         throw new Error('Email address is already taken.')
       }
       // Hash the password
-      const hashedPassword =  await bcrypt.hash(args.userInput.password, 12)
+      const hashedPassword = await bcrypt.hash(args.userInput.password, 12)
       // Create a new user instance
       const user = new User({
         firstName: args.userInput.firstName,
@@ -65,10 +65,10 @@ module.exports = {
 
       const res = await user.save();
       return { ...res._doc, password: null, _id: user.id }; // Note .id is a shortcut provided by mongoose which converts the mongoDB objectID to a string - instead of us doing _id: user._doc._id.toString();
-    
+
     } catch (err) {
       throw err
-    }          
+    }
   },
 
   //Create a video
@@ -82,7 +82,7 @@ module.exports = {
     let ownedVideo;
     const res = await video.save();
     ownedVideo = { ...res._doc, _id: video.id };
-    
+
     try {
       // Find the user associated who choose the video
       const user = await User.findById(args.videoInput.userID)
@@ -92,7 +92,7 @@ module.exports = {
       user.ownedVideos.push(video); // We can pass the object and mongoose will pull out the id as defined in our User schema.
       await user.save();
       return ownedVideo;
-    } 
+    }
     catch (err) {
       console.log(err);
       throw err;
@@ -100,42 +100,42 @@ module.exports = {
   },
 
   //Create a comment
-  // createComment: async (args) => {
-  //   const commenter = args.commentInput.commenterID
-  //   const playlistOwner = args.commentInput.playlistOwnerID
+  createComment: async (args) => {
+    const commenter = args.commentInput.commenterID
+    const playlistOwner = args.commentInput.playlistOwnerID
 
-  //   const comment = new Comment({
-  //     content: args.commentInput.content,
-  //     commenter: commenter,
-  //     playlistOwner: playlistOwner
-  //   })
-  //   let newComment;
-  //   const res = await comment.save();
-  //   newComment = { ...res._doc, _id: comment.id, createdAt: new Date(comment._doc.createdAt).toISOString(), updatedAt: new Date(comment._doc.updatedAt).toISOString() };
-    
-  //   try {
-  //     // Find the user who made the comment
-  //     const commentingUser = await User.findById(commenter)
-  //     if (!commentingUser) {
-  //       throw new Error('User not found.');
-  //     }
-  //     commentingUser.userComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
-  //     await commentingUser.save();
-      
+    const comment = new Comment({
+      content: args.commentInput.content,
+      commenter: commenter,
+      playlistOwner: playlistOwner
+    })
+    let newComment;
+    const res = await comment.save();
+    newComment = { ...res._doc, _id: comment.id, createdAt: new Date(comment._doc.createdAt).toISOString(), updatedAt: new Date(comment._doc.updatedAt).toISOString() };
 
-  //     // Find the user whose playlist has been commented on
-  //     const playlistOwnerUser = await User.findById(playlistOwner)
-  //     if (!playlistOwnerUser) {
-  //       throw new Error('User not found.');
-  //     }
-  //     playlistOwnerUser.playlistComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
-  //     await playlistOwnerUser.save();
-      
-  //     return newComment;
-  //   } 
-  //   catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // }
+    try {
+      // Find the user who made the comment
+      const commentingUser = await User.findById(commenter)
+      if (!commentingUser) {
+        throw new Error('User not found.');
+      }
+      commentingUser.userComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
+      await commentingUser.save();
+
+
+      // Find the user whose playlist has been commented on
+      const playlistOwnerUser = await User.findById(playlistOwner)
+      if (!playlistOwnerUser) {
+        throw new Error('User not found.');
+      }
+      playlistOwnerUser.playlistComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
+      await playlistOwnerUser.save();
+
+      return newComment;
+    } 
+    catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 }
