@@ -29,7 +29,23 @@ const UserSchema = new Schema({
     ref: 'video',
     autopopulate: true
     }
-  ]
+  ],
+  // The comments made by the user
+  userComments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'comment',
+      autopopulate: true
+    }
+  ],
+  // The comments on the user's playlist
+  playlistComments: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: 'comment',
+    autopopulate: true
+    }
+  ],
 });
 
 UserSchema.plugin(autopopulate);

@@ -11,9 +11,6 @@ const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
 
-
-
-
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
   const app = express();
