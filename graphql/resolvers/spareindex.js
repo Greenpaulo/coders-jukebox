@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
 const Video = require('../../models/Video');
-const Comment = require('../../models/Comment');
+// const Comment = require('../../models/Comment');
 
 
 module.exports = {
