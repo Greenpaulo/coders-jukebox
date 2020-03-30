@@ -8,8 +8,6 @@ module.exports = buildSchema(`
     email: String!
     password: String
     ownedVideos: [Video!]
-    userComments: [Comment!]
-    playlistComments: [Comment!]
   }
 
   type Video {
@@ -17,16 +15,8 @@ module.exports = buildSchema(`
     title: String!
     thumbnailURL: String!
     videoURL: String!
+    userID: String!
     owner: User!
-  }
-
-  type Comment {
-    _id: ID!
-    content: String!
-    commenter: User!
-    playlistOwner: User!
-    createdAt: String!
-    updatedAt: String!
   }
 
   input UserInput{
@@ -43,22 +33,14 @@ module.exports = buildSchema(`
     userID: String!
   }
 
-  input CommentInput{
-    content: String!
-    commenterID: String!
-    playlistOwnerID: String!
-  }
-
   type RootQuery {
     users: [User!]!
     videos: [Video!]!
-    comments: [Comment!]!
   }
 
   type RootMutation {
     createUser(userInput: UserInput): User
     createVideo(videoInput: VideoInput): Video
-    createComment(commentInput: CommentInput): Comment
   }
 
   schema {
