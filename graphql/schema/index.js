@@ -25,6 +25,8 @@ module.exports = buildSchema(`
     content: String!
     commenter: User!
     playlistOwner: User!
+    createdAt: String!
+    updatedAt: String!
   }
 
   input UserInput{

@@ -4,6 +4,10 @@ const User = require('../../models/User');
 const Video = require('../../models/Video');
 const Comment = require('../../models/Comment');
 
+const transformComment = comment => {
+  return { ...comment._doc, _id: comment.id, createdAt: new Date(comment._doc.createdAt).toISOString(), updatedAt: new Date(comment._doc.updatedAt).toISOString() }
+};
+
 
 module.exports = {
   // Query all users
@@ -35,7 +39,7 @@ module.exports = {
     try {
       const comments = await Comment.find();
       return comments.map(comment => {
-        return { ...comment._doc, _id: comment.id };
+        return transformComment(comment);
       })
     } catch(err) {
         throw err
@@ -77,7 +81,7 @@ module.exports = {
       title: args.videoInput.title,
       thumbnailURL: args.videoInput.thumbnailURL,
       videoURL: args.videoInput.videoURL,
-      owner: '5e7ddfd0a595a30de06a748b' // Mongoose will convert this to Object ID
+      owner: args.videoInput.userID // Mongoose will convert this to Object ID
     })
     let ownedVideo;
     const res = await video.save();
@@ -85,7 +89,7 @@ module.exports = {
     
     try {
       // Find the user associated who choose the video
-      const user = await User.findById('5e7ddfd0a595a30de06a748b')
+      const user = await User.findById(args.videoInput.userID)
       if (!user) {
         throw new Error('User not found.');
       }
@@ -111,7 +115,7 @@ module.exports = {
     })
     let newComment;
     const res = await comment.save();
-    newComment = { ...res._doc, _id: comment.id };
+    newComment = transformComment(res);
     
     try {
       // Find the user who made the comment
