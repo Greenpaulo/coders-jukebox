@@ -11,17 +11,17 @@ const CommentSchema = new Schema(
     commenter: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-      autopopulate: true
+      // autopopulate: true
     },
     playlistOwner: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-      autopopulate: true
+      // autopopulate: true
     }
   },
 {timestamps: true}
 );
 
-CommentSchema.plugin(autopopulate);
+// CommentSchema.plugin(autopopulate);
 
 module.exports = mongoose.model('comment', CommentSchema);
