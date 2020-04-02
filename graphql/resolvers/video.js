@@ -15,12 +15,17 @@ module.exports = {
   },
 
   //Create a video
-  createVideo: async (args) => {
+  createVideo: async (args, req) => {
+    // Check is user is authenticated
+    // console.log(req);
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    } 
     const video = new Video({
       title: args.videoInput.title,
       thumbnailURL: args.videoInput.thumbnailURL,
       videoURL: args.videoInput.videoURL,
-      owner: args.videoInput.userID // Mongoose will convert this to Object ID
+      owner: req.userId // Mongoose will convert this to Object ID
     })
     let ownedVideo;
     const res = await video.save();
@@ -28,7 +33,7 @@ module.exports = {
 
     try {
       // Find the user associated who choose the video
-      const user = await User.findById(args.videoInput.userID)
+      const user = await User.findById(req.userId)
       if (!user) {
         throw new Error('User not found.');
       }

@@ -29,6 +29,12 @@ module.exports = buildSchema(`
     updatedAt: String!
   }
 
+  type AuthData {
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+  }
+
   input UserInput{
     firstName: String! 
     lastName: String! 
@@ -53,6 +59,7 @@ module.exports = buildSchema(`
     users: [User!]!
     videos: [Video!]!
     comments: [Comment!]!
+    login(email: String!, password: String!): AuthData
   }
 
   type RootMutation {

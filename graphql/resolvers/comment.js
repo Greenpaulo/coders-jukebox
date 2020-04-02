@@ -1,5 +1,4 @@
 const User = require('../../models/User');
-const Video = require('../../models/Video');
 const Comment = require('../../models/Comment');
 
 module.exports = {
@@ -17,7 +16,11 @@ module.exports = {
 
   //Create a comment
   createComment: async (args) => {
-    const commenter = args.commentInput.commenterID
+    // Check is user is authenticated
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    } 
+    const commenter = req.userId
     const playlistOwner = args.commentInput.playlistOwnerID
 
     const comment = new Comment({
