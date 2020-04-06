@@ -20,7 +20,7 @@ const Index = () => {
   }
   return (
     <Layout>
-      <div>
+      <div className="container">
         {data.videos.map(video => (
           <h3 key={video.id}>{video.title}</h3>
         ))}
