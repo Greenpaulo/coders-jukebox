@@ -5,7 +5,7 @@ const Navbar = () => (
     <div id="logo">
       <Link href="/">
         <a>
-          <h1>The Coder's JukeBox</h1>
+          <h1>CodeTunes</h1>
         </a>
       </Link>
     </div>
@@ -14,6 +14,29 @@ const Navbar = () => (
         <a className="nav-link">About</a>
         </Link>
     </ul>
+
+    <style jsx>{`
+    
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #logo h1 {
+        color: white;
+      }
+
+      .nav-link {
+        color: white;
+      }
+
+
+
+      
+
+
+
+    `}</style>
   </nav>
 )
 

@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../lib/withApollo';
 // import { getDataFromTree } from '@apollo/react-ssr';
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 
 const VIDEOS_QUERY = gql`
   query VideosQuery{
@@ -19,12 +19,14 @@ const Index = () => {
     return <h1>loading...</h1>;
   }
   return (
-    <div>
-      <Navbar/>
-      {data.videos.map(video => (
-        <h3 key={video.id}>{video.title}</h3>
-      ))}
-    </div>
+    <Layout>
+      <div>
+        {data.videos.map(video => (
+          <h3 key={video.id}>{video.title}</h3>
+        ))}
+      </div>
+
+    </Layout>
   )
 };
 
