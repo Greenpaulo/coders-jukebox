@@ -2,19 +2,40 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
+// const ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports = {
   // Query all users
-  // users: async () => {
-  //   try {
-  //     const users = await User.find()
-  //     return users.map(user => {
-  //       return { ...user._doc, _id: user.id };
-  //     })
-  //   } catch (err) {
-  //     throw err
-  //   }
-  // },
+  users: async () => {
+    try {
+      const users = await User.find()
+      return users.map(user => {
+        return { ...user._doc, _id: user.id };
+      })
+    } catch (err) {
+      throw err
+    }
+  },
+
+  // Query a single user
+  user: async ({id}) => {
+    try {
+      // console.log(args.firstName);
+      const foundUser = await User.findById(id);
+      // console.log(foundUser);
+      return(foundUser);
+      // if (!foundUser) {
+      //   throw new Error('User does not exist!')
+      // }
+      // return foundUser;
+      // return foundUser => {
+        // return { ...foundUser._doc, _id: foundUser.id };
+      // }
+    } catch (err) {
+      throw err
+    }
+  },
+
 
   // Create a user
   createUser: async (args) => {

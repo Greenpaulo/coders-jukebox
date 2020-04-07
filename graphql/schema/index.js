@@ -57,6 +57,7 @@ module.exports = buildSchema(`
 
   type RootQuery {
     users: [User!]!
+    user(id: String!): User!
     videos: [Video!]!
     comments: [Comment!]!
     login(email: String!, password: String!): AuthData

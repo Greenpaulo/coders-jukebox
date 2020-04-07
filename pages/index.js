@@ -13,19 +13,19 @@ const VIDEOS_QUERY = gql`
 `;
 
 const Index = () => {
-  // const { loading, data } = useQuery(VIDEOS_QUERY);
+  const { loading, data } = useQuery(VIDEOS_QUERY);
 
-  // if (loading || !data) {
-  //   return <h1>loading...</h1>;
-  // }
+  if (loading || !data) {
+    return <h1>loading...</h1>;
+  }
   return (
     <Layout>
       <h1>Home</h1>
-      {/* <div className="container">
+      <div className="container">
         {data.videos.map(video => (
           <h3 key={video.id}>{video.title}</h3>
         ))}
-      </div> */}
+      </div>
 
     </Layout>
   )
