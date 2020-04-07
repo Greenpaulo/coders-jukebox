@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import withApollo from '../../lib/withApollo';
 import Layout from '../../components/Layout';
 import { useRouter } from 'next/router'
+import VideoItem from '../../components/VideoItem';
 
 
 
@@ -17,7 +18,9 @@ const Profile = () => {
         lastName,
         _id,
         ownedVideos {
-          title
+          thumbnailURL,
+          title,
+          videoURL
         },
         playlistComments{
           content
@@ -34,12 +37,34 @@ const Profile = () => {
 
   return (
     <Layout>
-      <section id="user-info">
-        <h2>{data.user.firstName} {data.user.lastName}</h2>
-        {/* {data.user.map(video => (
-          <h3 key={video.id}>{video.title}</h3>
-        ))} */}
-      </section>
+      <div className="container">
+        <section id="user-info">
+          <h2>{data.user.firstName} {data.user.lastName}</h2>
+        </section>
+
+        <section id="playlist">
+          <h2>Playlist</h2>
+          {data.user.ownedVideos.map(video => (
+            <VideoItem video={video} />
+          ))}
+        </section>
+      </div>
+
+
+
+        <style jsx>{`
+        
+          #user-info {
+            margin-top: 2rem
+          }
+          
+          
+          #playlist {
+            margin-top: 4rem;
+          }
+        
+        `}</style>
+
     </Layout>
   )
 }
