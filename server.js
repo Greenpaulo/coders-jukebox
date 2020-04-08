@@ -1,5 +1,5 @@
 const express = require('express')
-const next = require('next')
+// const next = require('next')
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
 
@@ -7,15 +7,21 @@ const graphqlSchema = require('./graphql/schema/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
 const isAuth = require('./middleware/isAuth');
 
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = parseInt(process.env.PORT, 10) || 5000
 const dev = process.env.NODE_ENV !== 'production'
-const nextApp = next({ dev })
-const handle = nextApp.getRequestHandler();
+// const nextApp = next({ dev })
+// const handle = nextApp.getRequestHandler();
+const cors = require('cors')
 
+
+  
 // Integrating Next.js with Express
-nextApp.prepare().then(() => {
+// nextApp.prepare().then(() => {
   const app = express();
 
+  // Allow cross-origin
+  app.use(cors());
+  
   // Set up our auth middleware
   app.use(isAuth);
   
@@ -27,9 +33,9 @@ nextApp.prepare().then(() => {
   }))
 
   // Tell Next.js to handle all other routes
-  app.all('*', (req, res) => {
-    return handle(req, res)
-  })
+  // app.all('*', (req, res) => {
+  //   return handle(req, res)
+  // })
 
   // Connecting to MongoDB and starting the dev server
   mongoose
@@ -45,4 +51,4 @@ nextApp.prepare().then(() => {
       console.log(err)
     })
   
-})
+// })

@@ -35,6 +35,10 @@ const Profile = () => {
     return <h1>loading...</h1>;
   }
 
+  // const renderAddToPlayList = () => {
+  //   if (data.user._id === )
+  // }
+
   return (
     <Layout>
       <div className="container">
@@ -48,6 +52,8 @@ const Profile = () => {
             <VideoItem video={video} />
           ))}
         </section>
+
+        {/* {renderAddToPlayList} */}
       </div>
 
 
