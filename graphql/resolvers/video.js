@@ -17,19 +17,27 @@ module.exports = {
   //Create a video
   createVideo: async (args, req) => {
     // Check is user is authenticated
-    // console.log(req);
     if (!req.isAuth) {
       throw new Error('Unauthenticated!');
     } 
+
+    console.log('args', args);
+
+    // Create a new video object
     const video = new Video({
       title: args.videoInput.title,
       thumbnailURL: args.videoInput.thumbnailURL,
       videoURL: args.videoInput.videoURL,
       owner: req.userId // Mongoose will convert this to Object ID
     })
-    let ownedVideo;
+
+    // console.log(video)
+    // let ownedVideo;
+
+    // Save the video into the videos collection
     const res = await video.save();
-    ownedVideo = { ...res._doc, _id: video.id };
+
+    // ownedVideo = { ...res._doc, _id: video.id };
 
     try {
       // Find the user associated who choose the video
@@ -37,9 +45,12 @@ module.exports = {
       if (!user) {
         throw new Error('User not found.');
       }
+      // Push the new video onto their ownedVideos array
       user.ownedVideos.push(video); // We can pass the object and mongoose will pull out the id as defined in our User schema.
       await user.save();
-      return ownedVideo;
+      
+      // Return the video object
+      return video;
     }
     catch (err) {
       console.log(err);

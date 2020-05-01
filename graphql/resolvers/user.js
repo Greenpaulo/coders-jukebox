@@ -109,24 +109,25 @@ module.exports = {
     // Create the token
     const token = jwt.sign(
       { userId: user.id, email: user.email }, "ojwafwe5f1weeD4F4fwfwjkjK5SHhwqFlfj6hewjf1EFDSF5SDFjn6Suvref564f", 
-      {expiresIn: '1h'}
+      // {expiresIn: '1h'}
     );
 
     // Create a session for the user - set the user id on the session
     // Express-session will add a cookie for the user
-    const options = {
-      maxAge: 1000 * 60 * 60 * 24, //expires in a day
-      domain: 'http://localhost:3000'
-      // httpOnly: true, // cookie is only accessible by the server
-      // secure: process.env.NODE_ENV === 'prod', // only transferred over https
-      // sameSite: true, // only sent for requests to the same FQDN as the domain in the cookie
-    }
+    // const options = {
+    //   maxAge: 1000 * 60 * 60 * 24, //expires in a day
+    //   domain: 'http://localhost:3000'
+    //   // httpOnly: true, // cookie is only accessible by the server
+    //   // secure: process.env.NODE_ENV === 'prod', // only transferred over https
+    //   // sameSite: true, // only sent for requests to the same FQDN as the domain in the cookie
+    // }
     
-    context.session.userId = user.id;
+    // context.session.userId = user.id;
 
-    context.session.cookie = {token, options}
-    console.log(context.session)
+    // context.session.cookie = {token, options}
+    // console.log(context.session)
 
-    return { userId: user.id, token: token, tokenExpiration: 1}
+    // return { userId: user.id, token: token, tokenExpiration: 1}
+    return { userId: user.id, token: token}
   }
 }
