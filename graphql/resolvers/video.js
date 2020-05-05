@@ -56,6 +56,45 @@ module.exports = {
       console.log(err);
       throw err;
     }
+  },
+
+  //Remove a video
+  removeVideo: async (args, req) => {
+    // Check is user is authenticated
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    } 
+
+    console.log(args)
+
+    // Remove the video from the videos collection 
+    const res = await Video.deleteOne({ _id: args.id });
+
+    // Remove the video from the user's ownedvideos array
+    try {
+      // Find the user associated who choose the video
+      const user = await User.findById(req.userId)
+      if (!user) {
+        throw new Error('User not found.');
+      }
+      // Filter the video from their ownedVideos array
+      // const updatedVideos = user.ownedVideos.filter(video => video._id !== args.id);
+
+      // console.log(updatedVideos)
+      console.log(user.ownedVideos)
+
+      // user.ownedVideos = updatedVideos;
+
+      // user.ownedVideos.push(video); // We can pass the object and mongoose will pull out the id as defined in our User schema.
+      await user.save();
+      
+      // Return the updated user object
+      return user;
+    }
+    catch (err) {
+      console.log(err);
+      throw err;
+    }
   }
 
   

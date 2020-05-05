@@ -28,7 +28,7 @@ module.exports = {
     try {
       // console.log(args.firstName);
       const foundUser = await User.findById(args.id);
-      // console.log(foundUser);
+      console.log(foundUser);
       if (!foundUser) {
         throw new Error('User does not exist!')
       }
@@ -38,6 +38,8 @@ module.exports = {
       throw err
     }
   },
+
+
   // Query a single user data using the token
   userByToken: async (_, req, res) => {
     // console.log(res)
@@ -48,7 +50,7 @@ module.exports = {
     try {
       // console.log(args.firstName);
       const foundUser = await User.findById(req.userId);
-      // console.log(foundUser);
+      console.log(foundUser);
       if (!foundUser) {
         throw new Error('User does not exist!')
       }

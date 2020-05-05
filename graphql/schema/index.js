@@ -67,6 +67,7 @@ module.exports = buildSchema(`
   type RootMutation {
     createUser(userInput: UserInput): User
     createVideo(videoInput: VideoInput): Video
+    removeVideo(id: String!): User
     createComment(commentInput: CommentInput): Comment
   }
 

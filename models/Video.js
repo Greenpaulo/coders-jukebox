@@ -11,10 +11,10 @@ const VideoSchema = new Schema({
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'user',
-    autopopulate: true
+    // autopopulate: true
   } 
 });
 
-VideoSchema.plugin(autopopulate);
+// VideoSchema.plugin(autopopulate);
 
 module.exports = mongoose.model('video', VideoSchema);

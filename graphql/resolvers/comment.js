@@ -15,7 +15,7 @@ module.exports = {
   },
 
   //Create a comment
-  createComment: async (args) => {
+  createComment: async (args, req) => {
     // Check is user is authenticated
     if (!req.isAuth) {
       throw new Error('Unauthenticated!');
