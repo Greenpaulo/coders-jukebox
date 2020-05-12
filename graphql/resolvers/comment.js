@@ -36,9 +36,8 @@ module.exports = {
     try {
       // Find the user who made the comment
       const commentingUser = await User.findById(commenter)
-      console.log('commenter', commenter)
       if (!commentingUser) {
-        throw new Error('User not found.');
+        throw new Error('Commenting user not found.');
       }
       commentingUser.userComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
       await commentingUser.save();
@@ -47,7 +46,7 @@ module.exports = {
       // Find the user whose playlist has been commented on
       const playlistOwnerUser = await User.findById(playlistOwner)
       if (!playlistOwnerUser) {
-        throw new Error('User not found.');
+        throw new Error('Playlist owner not found.');
       }
       playlistOwnerUser.playlistComments.push(newComment); // We can pass the object and mongoose will pull out the id as defined in our User schema.
       await playlistOwnerUser.save();

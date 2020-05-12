@@ -46,13 +46,13 @@ module.exports = buildSchema(`
     title: String! 
     thumbnailURL: String! 
     videoURL: String!
-    userID: String!
+    userId: String!
   }
 
   input CommentInput{
     content: String!
-    commenterID: String!
-    playlistOwnerID: String!
+    commenterId: String!
+    playlistOwnerId: String!
   }
 
   type RootQuery {
