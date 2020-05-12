@@ -67,16 +67,19 @@ module.exports = {
       throw new Error('Unauthenticated!');
     }
 
+    const commenter = req.userId
+    const playlistOwnerId = args.playlistOwnerId;
+
     // Remove the comment from the associated userComments array and the playlistComments array
     
     try {
       // Find the user who made the comment - i.e. the logged in user
-      const user = await User.findById(req.userId)
+      const user = await User.findById(commenter)
       if (!user) {
         throw new Error('User not found.');
       }
       // Filter the comment from their userComments array
-      const updatedComments = user.userComments.filter(comment => comment._id !== args.id);
+      const updatedComments = user.userComments.filter(comment => comment._id != args.id);
       
       user.userComments = updatedComments;
       
@@ -84,12 +87,12 @@ module.exports = {
       
       
       // Find the playlist user
-      const playlistOwner = await User.findById(req.playlistOwnerId)
+      const playlistOwner = await User.findById(playlistOwnerId)
       if (!user) {
         throw new Error('User not found.');
       }
       // Filter the comment from their userComments array
-      const updatedPlaylistComments = playlistOwner.playlistComments.filter(comment => comment._id !== comment.id);
+      const updatedPlaylistComments = playlistOwner.playlistComments.filter(comment => comment._id != args.id);
       
       playlistOwner.playlistComments = updatedPlaylistComments;
       
