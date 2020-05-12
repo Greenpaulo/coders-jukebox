@@ -39,6 +39,12 @@ const cors = require('cors');
     rootValue: graphqlResolvers,
     graphiql: true
   }))
+  // app.use('/graphql', graphqlHttp(req => ({
+  //   schema: graphqlSchema,
+  //   rootValue: graphqlResolvers,
+  //   graphiql: true,
+  //   context: { req: req}
+  // })))
 
   // Tell Next.js to handle all other routes
   // app.all('*', (req, res) => {

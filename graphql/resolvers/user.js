@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const session = require('express-session');
+const session = require('express-session');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
 // const ObjectId = require('mongoose').Types.ObjectId;
@@ -28,7 +28,7 @@ module.exports = {
     try {
       // console.log(args.firstName);
       const foundUser = await User.findById(args.id);
-      console.log(foundUser);
+      // console.log(foundUser);
       if (!foundUser) {
         throw new Error('User does not exist!')
       }
@@ -50,7 +50,7 @@ module.exports = {
     try {
       // console.log(args.firstName);
       const foundUser = await User.findById(req.userId);
-      console.log(foundUser);
+      // console.log(foundUser);
       if (!foundUser) {
         throw new Error('User does not exist!')
       }
@@ -97,7 +97,7 @@ module.exports = {
   },
 
   // login
-  login: async ({ email, password}, context) => {
+  login: async ({ email, password}, req, res) => {
     // console.log('context', context.session)
     // Validate email and password
     const user = await User.findOne({email: email});
@@ -116,18 +116,18 @@ module.exports = {
 
     // Create a session for the user - set the user id on the session
     // Express-session will add a cookie for the user
-    // const options = {
-    //   maxAge: 1000 * 60 * 60 * 24, //expires in a day
-    //   domain: 'http://localhost:3000'
-    //   // httpOnly: true, // cookie is only accessible by the server
-    //   // secure: process.env.NODE_ENV === 'prod', // only transferred over https
-    //   // sameSite: true, // only sent for requests to the same FQDN as the domain in the cookie
-    // }
+    const options = {
+      maxAge: 1000 * 60 * 60 * 24, //expires in a day
+      domain: 'http://localhost:3000'
+      // httpOnly: true, // cookie is only accessible by the server
+      // secure: process.env.NODE_ENV === 'prod', // only transferred over https
+      // sameSite: true, // only sent for requests to the same FQDN as the domain in the cookie
+    }
     
     // context.session.userId = user.id;
 
     // context.session.cookie = {token, options}
-    // console.log(context.session)
+    // console.log(res.cookie)
 
     // return { userId: user.id, token: token, tokenExpiration: 1}
     return { userId: user.id, token: token}

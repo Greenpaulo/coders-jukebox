@@ -69,6 +69,7 @@ module.exports = buildSchema(`
     createVideo(videoInput: VideoInput): Video
     removeVideo(id: String!): User
     createComment(commentInput: CommentInput): Comment
+    removeComment(id: String!, playlistOwnerId: String!): User
   }
 
   schema {
