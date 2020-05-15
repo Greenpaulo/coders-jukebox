@@ -96,6 +96,28 @@ module.exports = {
     }
   },
 
+
+  // Update a user
+  updateUser: async (args, req) => {
+    try {
+      
+      // Get the user's info
+      const user = await User.findById(req.userId);
+
+      // Update the info
+      user.firstName = args.profileInput.firstName;
+      user.lastName = args.profileInput.lastName;
+      user.jobTitle = args.profileInput.jobTitle;
+      user.location = args.profileInput.location;
+
+      const res = await user.save();
+      return { ...res._doc, password: null, _id: user.id }; // Note .id is a shortcut provided by mongoose which converts the mongoDB objectID to a string - instead of us doing _id: user._doc._id.toString();
+
+    } catch (err) {
+      throw err
+    }
+  },
+
   // login
   login: async ({ email, password}, req, res) => {
     // console.log('context', context.session)

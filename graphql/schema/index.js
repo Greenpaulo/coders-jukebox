@@ -6,7 +6,9 @@ module.exports = buildSchema(`
     firstName: String!
     lastName: String!
     email: String!
-    password: String
+    password: String,
+    jobTitle: String,
+    location: String,
     ownedVideos: [Video!]
     userComments: [Comment!]
     playlistComments: [Comment!]
@@ -42,6 +44,13 @@ module.exports = buildSchema(`
     password: String!
   }
 
+  input ProfileInput{
+    firstName: String! 
+    lastName: String! 
+    jobTitle: String
+    location: String
+  }
+
   input VideoInput{
     title: String! 
     thumbnailURL: String! 
@@ -66,6 +75,7 @@ module.exports = buildSchema(`
 
   type RootMutation {
     createUser(userInput: UserInput): User
+    updateUser(profileInput: ProfileInput): User
     createVideo(videoInput: VideoInput): Video
     removeVideo(id: String!): User
     createComment(commentInput: CommentInput): Comment
