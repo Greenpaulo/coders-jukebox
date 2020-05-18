@@ -108,5 +108,32 @@ module.exports = {
       console.log(err);
       throw err;
     }
+  },
+
+  //Edit a comment
+  editComment: async (args, req) => {
+    // Check is user is authenticated
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    }
+    
+    try {
+    
+    const editedContent = args.content
+
+    // Find the comment in the Comments collection
+    const comment = await Comment.findById(args.id)
+
+    comment.content = editedContent;
+
+    comment.save();
+
+    return comment;
+      
+    }
+    catch (err) {
+      console.log(err);
+      throw err;
+    }
   }
 }
