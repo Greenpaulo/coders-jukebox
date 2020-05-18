@@ -85,7 +85,8 @@ module.exports = {
         location: null,
         ownedVideos: [],
         userComments: [],
-        playlistComments: []
+        playlistComments: [],
+        favourites: []
       });
 
       const res = await user.save();

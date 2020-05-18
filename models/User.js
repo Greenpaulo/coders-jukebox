@@ -46,6 +46,13 @@ const UserSchema = new Schema({
     autopopulate: true
     }
   ],
+  // Favourite users
+  favourites: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: 'user'
+    }
+  ]
 });
 
 UserSchema.plugin(autopopulate);
