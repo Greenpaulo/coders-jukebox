@@ -32,39 +32,36 @@ module.exports = {
     }
   },
 
-  // //Remove a video
-  // removeVideo: async (args, req) => {
-  //   // Check is user is authenticated
-  //   if (!req.isAuth) {
-  //     throw new Error('Unauthenticated!');
-  //   }
+  //Remove a favourite
+  removeFavourite: async (args, req) => {
+    // Check is user is authenticated
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    }
 
-  //   // Remove the video from the user's ownedvideos array
-  //   try {
-  //     // Find the user associated who choose the video
-  //     const user = await User.findById(req.userId)
-  //     if (!user) {
-  //       throw new Error('User not found.');
-  //     }
+    // Remove the id from the user's favourite array
+    try {
+      // Find the logged in user
+      const user = await User.findById(req.userId)
+      if (!user) {
+        throw new Error('User not found.');
+      }
 
-  //     // Filter the video from their ownedVideos array
-  //     const updatedVideos = user.ownedVideos.filter(video => video._id != args.id);
+      // Filter the id from their favourites array
+      const updatedFavourites = user.favourites.filter(fav => fav._id != args.id);
 
-  //     user.ownedVideos = updatedVideos;
+      user.favourites = updatedFavourites;
 
-  //     await user.save();
+      await user.save();
 
-  //     // Remove the video from the videos collection 
-  //     await Video.deleteOne({ _id: args.id });
-
-  //     // Return the updated user object
-  //     return user;
-  //   }
-  //   catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // }
+      // Return the updated user object
+      return user;
+    }
+    catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 
 
 }

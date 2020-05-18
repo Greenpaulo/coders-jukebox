@@ -82,6 +82,7 @@ module.exports = buildSchema(`
     createComment(commentInput: CommentInput): Comment
     removeComment(id: String!, playlistOwnerId: String!): User
     addFavourite(id: String!): User!
+    removeFavourite(id: String!): User!
   }
 
   schema {
