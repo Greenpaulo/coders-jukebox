@@ -13,6 +13,7 @@ module.exports = buildSchema(`
     userComments: [Comment!]
     playlistComments: [Comment!]
     favourites: [String!]
+    profilePhotoFilename: String
   }
 
   type Video {
@@ -84,6 +85,7 @@ module.exports = buildSchema(`
     removeComment(id: String!, playlistOwnerId: String!): User
     addFavourite(id: String!): User!
     removeFavourite(id: String!): User!
+
   }
 
   schema {

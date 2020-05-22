@@ -52,7 +52,11 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
     }
-  ]
+  ],
+  profilePhotoFilename: {
+    type: String,
+    required: false
+  }
 });
 
 UserSchema.plugin(autopopulate);

@@ -3,6 +3,7 @@ const express = require('express')
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const User = require('./models/User');
 
 // File uploads
 const crypto = require('crypto');
@@ -77,13 +78,12 @@ const cors = require('cors');
     })
 
 
-
-
-// // Mongo URI
+// SET UP FOR FILE UPLOADS
+// Mongo URI
 const mongoURI = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev`;
 
 // Create mongo connection
-const conn = mongoose.createConnection(mongoURI);
+const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Init gfs
 let gfs;
@@ -116,12 +116,44 @@ const storage = new GridFsStorage({
 const upload = multer({ storage });
 
 
-// API endpoint for file upload
-app.post('/upload', upload.single('file'), (req, res) => {
-  // res.json({ file: req.file });
-  // res.redirect('/');
+// API ENDPOINTS FOR FILE UPLOADS
+
+// @route GET /upload
+// @desc Uploads a single file
+app.post('/upload', upload.single('file'), async (req, res) => {
+  // Also add the filename to the user's data
+  try {
+    console.log(req.userId)
+    // Get the user's info
+    const user = await User.findById(req.userId);
+
+    // Update the profilePhoto section of user data
+    user.profilePhotoFilename = req.file.filename
+
+    await user.save();
+
+  } catch (err) {
+    throw err
+  }
+
   res.send(req.file);
 });
+
+// @route GET /file/:filename
+// @desc Gets a single file from the uploads collection
+app.get('/file/:filename', (req, res) => {
+  console.log(req.params.filename)
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // Check if file
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists'
+      });
+    }
+    return res.json(file);
+
+  })
+})
 
 // @route GET /image/:filename
 // @desc Display Image
@@ -146,6 +178,7 @@ app.get('/image/:filename', (req, res) => {
     }
   });
 });
+
 
 // app.listen(port, err => {
 //   if (err) throw err
