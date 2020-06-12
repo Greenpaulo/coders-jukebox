@@ -83,10 +83,13 @@ module.exports = {
         password: hashedPassword,
         jobTitle: null,
         location: null,
+        languages: [],
+        about: null,
         ownedVideos: [],
         userComments: [],
         playlistComments: [],
-        favourites: []
+        favourites: [],
+        profilePhotoFilename: null
       });
 
       const res = await user.save();
@@ -101,6 +104,8 @@ module.exports = {
   // Update a user
   updateUser: async (args, req) => {
     try {
+
+      console.log(args)
       
       // Get the user's info
       const user = await User.findById(req.userId);
@@ -110,6 +115,10 @@ module.exports = {
       user.lastName = args.profileInput.lastName;
       user.jobTitle = args.profileInput.jobTitle;
       user.location = args.profileInput.location;
+      user.languages = args.profileInput.languages;
+      user.about = args.profileInput.about;
+
+      // console.log(user);
 
       const res = await user.save();
       return { ...res._doc, password: null, _id: user.id }; // Note .id is a shortcut provided by mongoose which converts the mongoDB objectID to a string - instead of us doing _id: user._doc._id.toString();

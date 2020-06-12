@@ -6,9 +6,11 @@ module.exports = buildSchema(`
     firstName: String!
     lastName: String!
     email: String!
-    password: String,
-    jobTitle: String,
-    location: String,
+    password: String
+    jobTitle: String
+    location: String
+    languages: [String!]
+    about: String
     ownedVideos: [Video!]
     userComments: [Comment!]
     playlistComments: [Comment!]
@@ -51,6 +53,8 @@ module.exports = buildSchema(`
     lastName: String! 
     jobTitle: String
     location: String
+    languages: [String]
+    about: String
   }
 
   input VideoInput{

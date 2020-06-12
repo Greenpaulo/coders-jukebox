@@ -21,6 +21,8 @@ const UserSchema = new Schema({
   },
   jobTitle: String,
   location: String,
+  languages: [String],
+  about: String,
 
   // The videos choosen by the user
   ownedVideos: [
