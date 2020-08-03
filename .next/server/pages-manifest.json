@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/auth": "pages/auth.js",
-  "/profile/[userId]": "pages/profile/[userId].js"
+  "/profile/[userId]": "pages/profile/[userId].js",
+  "/auth": "pages/auth.js"
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SearchBar from './SearchBar';
-import { youtube, KEY } from '../apis/youtube';
+import { youtube } from '../apis/youtube';
+import { YOUTUBEAPI_KEY } from '../config/keys';
 import VideoItem from './VideoItem';
 import colors from '../css-variables/colors';
 
@@ -8,13 +9,15 @@ const AddToPlaylist = () => {
 
   const [videos, setVideos] = useState([]);
 
+  console.log('key', YOUTUBEAPI_KEY);
+
   const searchVideoHandler = async (searchInput) => {
     const res = await youtube.get('/search', {
         params: {
           type: 'video',
           part: 'snippet',
           maxResults: 5,
-          key: KEY,
+          key: YOUTUBEAPI_KEY,
           q: searchInput
         }
       })
