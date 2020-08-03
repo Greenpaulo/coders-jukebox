@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SearchBar from './Searchbar';
+import SearchBar from './SearchBar';
 import { youtube, KEY } from '../apis/youtube';
 import VideoItem from './VideoItem';
 import colors from '../css-variables/colors';
