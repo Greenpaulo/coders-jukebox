@@ -24,7 +24,6 @@ const handle = nextApp.getRequestHandler();
 const cors = require('cors');
 
 
-  
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
   const app = express();
@@ -51,12 +50,6 @@ nextApp.prepare().then(() => {
     rootValue: graphqlResolvers,
     graphiql: true
   }))
-  app.use('/graphql', graphqlHttp(req => ({
-    schema: graphqlSchema,
-    rootValue: graphqlResolvers,
-    graphiql: true,
-    context: { req: req}
-  })))
 
   // SET UP FOR FILE UPLOADS
   // Mongo URI
@@ -178,13 +171,4 @@ nextApp.prepare().then(() => {
       console.log(err)
     })
 
-
-
-
-
-// app.listen(port, err => {
-//   if (err) throw err
-//   console.log(`> Connected to MongoDB, server ready on http://localhost:${port}`)
-// })
-  
 })
