@@ -4,6 +4,7 @@ const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const User = require('./models/User');
+const keys = require('./config/keys');
 
 // File uploads
 const crypto = require('crypto');
@@ -22,7 +23,6 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
 const cors = require('cors');
-
 
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
@@ -53,10 +53,13 @@ nextApp.prepare().then(() => {
 
   // SET UP FOR FILE UPLOADS
   // Mongo URI
-  const mongoURI = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev`;
+  // const mongoURI = 
+  //   process.env.NODE_ENV !== 'production' ?
+  //   `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev` : 
+  //   `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds047474.mlab.com:47474/coders-jukebox-prod`;
 
   // Create mongo connection
-  const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+  const conn = mongoose.createConnection(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
   // Init gfs
   let gfs;
@@ -69,7 +72,7 @@ nextApp.prepare().then(() => {
 
   // Create storage engine
   const storage = new GridFsStorage({
-    url: mongoURI,
+    url: keys.mongoURI,
     file: (req, file) => {
       return new Promise((resolve, reject) => {
         crypto.randomBytes(16, (err, buf) => {
@@ -159,7 +162,7 @@ nextApp.prepare().then(() => {
 
   // Connecting to MongoDB and starting the dev server
   mongoose
-    .connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev`, { useNewUrlParser: true, useUnifiedTopology: true }
+    .connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(
       app.listen(port, err => {
