@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Router from 'next/router';
 import cookie from 'react-cookies';
 import axios from 'axios';
-import { empty } from 'apollo-boost';
+// import { empty } from 'apollo-boost';
 import { AnimatePresence } from 'framer-motion';
 
 const App = ({ Component, pageProps, router }) => {
