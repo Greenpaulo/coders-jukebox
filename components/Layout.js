@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
+import colors from '../css-variables/colors';
 
 
 const Layout = (props) => (
@@ -26,7 +27,12 @@ const Layout = (props) => (
         font-size: 16px;
         font-weight: 400;
         line-height: 1.8em;
-        background-color: purple;
+        /* background-color: purple; */
+        /* background-color: #dd00ff; */
+        /* background-color: #fff; */
+        background-color: black;
+        height: 100vh;
+        /* width: 100vw; */
       }
 
       .container {
@@ -37,11 +43,35 @@ const Layout = (props) => (
 
       a {
         text-decoration: none;
+        color: black;
+      }
+
+      button {
+        color: white;
+        padding: 0.5rem 1rem ;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: ${colors.primary};
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+        transition: transform 80ms ease-in;
+        }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button:focus {
+        outline: none;
+      }
+      
+      button:hover {
+        background-color: #e5305a;
       }
     
     `} 
-    </style>
-    
+    </style> 
   </div>
 )
 

@@ -104,9 +104,6 @@ module.exports = {
   // Update a user
   updateUser: async (args, req) => {
     try {
-
-      console.log(args)
-      
       // Get the user's info
       const user = await User.findById(req.userId);
 
