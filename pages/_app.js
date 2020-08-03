@@ -9,7 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const App = ({ Component, pageProps, router }) => {
 
-  const port = parseInt(process.env.PORT, 10) || 5000;
+  const port = parseInt(process.env.PORT, 10) || 3000;
 
   let token = null;
 

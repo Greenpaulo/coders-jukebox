@@ -17,7 +17,7 @@ const graphqlSchema = require('./graphql/schema/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
 const isAuth = require('./middleware/isAuth');
 
-const port = parseInt(process.env.PORT, 10) || 5000;
+const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
