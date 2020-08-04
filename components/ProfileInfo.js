@@ -189,7 +189,8 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
         height: 266px;
         overflow: hidden;
         border-radius: 50%;
-        background-image: url('http://localhost:3000/image/${profileUser.profilePhotoFilename}');
+        /* background-image: url('http://localhost:3000/image/${profileUser.profilePhotoFilename}'); */
+        background-image: url('/image/${profileUser.profilePhotoFilename}');
         /* background-position: center; */
         background-size: cover;
       }
