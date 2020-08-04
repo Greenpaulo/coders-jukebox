@@ -53,7 +53,7 @@ const FavouriteItem = ({id}) => {
         <div className="crop">
           <Link href="/profile/[userId]" as={`/profile/${id}`}>
             <a onClick={favUserClickHandler}>
-              <img src={`http://localhost:5000/image/${favUser.profilePhotoFilename}`} alt="avatar" />
+              <img src={`http://localhost:3000/image/${favUser.profilePhotoFilename}`} alt="avatar" />
             </a>
           </Link>
         </div>
