@@ -96,7 +96,7 @@ nextApp.prepare().then(() => {
 
   // @route GET /upload
   // @desc Uploads a single file
-  app.post('/upload', upload.single('file'), async (req, res) => {
+  app.post('*/upload', upload.single('file'), async (req, res) => {
     // Also add the filename to the user's data
     try {
       console.log(req.userId)

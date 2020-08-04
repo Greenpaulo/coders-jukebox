@@ -13,8 +13,8 @@ const App = ({ Component, pageProps, router }) => {
   // const port = parseInt(process.env.PORT, 10) || 3000;
   
   // Determine the URI based on dev or prod
-  // const URI = process.env.NODE_ENV === 'production' 
-  //   ? keys.URI :
+  // const URI = process.env.NODE_ENV === 'production' ?
+  // 'http://code-tunes.herokuapp.com' :
   //  `http://localhost:${port}`;
 
   let token = null;
@@ -1046,7 +1046,7 @@ const App = ({ Component, pageProps, router }) => {
 
     try {
       // Make API request to upload the file to the DB
-      const res = await axios.post('upload', formData, {
+      const res = await axios.post('/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${authState.token}`
