@@ -9,8 +9,6 @@ const AddToPlaylist = () => {
 
   const [videos, setVideos] = useState([]);
 
-  console.log('key', YOUTUBEAPI_KEY);
-
   const searchVideoHandler = async (searchInput) => {
     const res = await youtube.get('/search', {
         params: {

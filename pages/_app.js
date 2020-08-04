@@ -6,10 +6,16 @@ import cookie from 'react-cookies';
 import axios from 'axios';
 // import { empty } from 'apollo-boost';
 import { AnimatePresence } from 'framer-motion';
+import keys from '../config/keys';
 
 const App = ({ Component, pageProps, router }) => {
 
   const port = parseInt(process.env.PORT, 10) || 3000;
+  
+  // Determine the URI based on dev or prod
+  const URI = process.env.NODE_ENV === 'production' 
+    ? keys.URI :
+   `http://localhost:${port}`;
 
   let token = null;
 
@@ -94,7 +100,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -166,8 +172,8 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      // const res = await fetch(`http://localhost:${port}/graphql`, {
-      const res = await fetch(`https://code-tunes.herokuapp.com/graphql`, {
+      // const res = await fetch(`${URI}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -244,7 +250,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -297,7 +303,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -383,7 +389,7 @@ const App = ({ Component, pageProps, router }) => {
     // console.log(authState.token)
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -459,7 +465,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -645,7 +651,7 @@ const App = ({ Component, pageProps, router }) => {
     // console.log(authState.token)
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -698,7 +704,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -769,7 +775,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -825,7 +831,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -878,7 +884,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -930,7 +936,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
@@ -982,7 +988,7 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`${URI}/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
