@@ -1046,7 +1046,7 @@ const App = ({ Component, pageProps, router }) => {
 
     try {
       // Make API request to upload the file to the DB
-      const res = await axios.post(`http://localhost:${port}/upload`, formData, {
+      const res = await axios.post('upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${authState.token}`
