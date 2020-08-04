@@ -84,7 +84,6 @@ const Comment = ({comment}) => {
               {commentUser.profilePhotoFilename !== null && commentUser.profilePhotoFilename !== '' &&
                 <Link href="/profile/[userId]" as={`/profile/${commenterId}`}>
                   <a onClick={commenterClickHandler}>
-                    {/* <img src={`http://localhost:3000/image/${commentUser.profilePhotoFilename}`} alt="avatar" /> */}
                     <img src={`/image/${commentUser.profilePhotoFilename}`} alt="avatar" />
                   </a>
                 </Link>

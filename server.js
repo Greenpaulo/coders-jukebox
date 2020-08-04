@@ -52,12 +52,6 @@ nextApp.prepare().then(() => {
   }))
 
   // SET UP FOR FILE UPLOADS
-  // Mongo URI
-  // const mongoURI = 
-  //   process.env.NODE_ENV !== 'production' ?
-  //   `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds121996.mlab.com:21996/coders-jukebox-dev` : 
-  //   `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds047474.mlab.com:47474/coders-jukebox-prod`;
-
   // Create mongo connection
   const conn = mongoose.createConnection(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 

@@ -10,14 +10,7 @@ import keys from '../config/keys';
 
 const App = ({ Component, pageProps, router }) => {
 
-  // const port = parseInt(process.env.PORT, 10) || 3000;
-  
-  // Determine the URI based on dev or prod
-  // const URI = process.env.NODE_ENV === 'production' ?
-  // 'http://code-tunes.herokuapp.com' :
-  //  `http://localhost:${port}`;
-
-  let token = null;
+ let token = null;
 
   useEffect(() => {
     //Get all users - for the searchbar user search
@@ -128,20 +121,6 @@ const App = ({ Component, pageProps, router }) => {
       // Save token to local storage
       localStorage.setItem('token', token)
 
-      // // Set token as a cookie
-      // cookie.save(
-      //   'userId',
-      //   userId,
-      //   {
-      //     path: '/',
-      //     // expires,
-      //     maxAge: 1000,
-      //     domain: 'http://localhost:3000',
-      //     secure: false,
-      //     httpOnly: false
-      //   }
-      // )
-
       // Fetch the user data and set currentUser state
       await getUserDataByToken(token);
 
@@ -217,10 +196,6 @@ const App = ({ Component, pageProps, router }) => {
 
     setProfileUser(emptyUser);
     
-    // Redirect to home page
-    // Router.push('/');
-    // console.log('currentUser', currentUser);
-    // console.log('profileUser', profileUser);
   }
 
   // USER *****************************************************************************
@@ -384,10 +359,6 @@ const App = ({ Component, pageProps, router }) => {
         }
     }
 
-
-    // console.log(requestBody)
-    // console.log(authState.token)
-
     try {
       const res = await fetch('/graphql', {
         method: 'POST',
@@ -425,8 +396,6 @@ const App = ({ Component, pageProps, router }) => {
   
   // Get logged in user's data and sets it in the userState
   const getUserDataByToken = async (token) => {
-
-    // console.log('called')
 
     let requestBody;
 
@@ -490,8 +459,6 @@ const App = ({ Component, pageProps, router }) => {
       }
 
       const user = data.data.userByToken;
-      // console.log(user.firstName)
-      // console.log(user);
       
       setCurrentUser({
         id: user._id,
@@ -554,10 +521,6 @@ const App = ({ Component, pageProps, router }) => {
         videoId: video.videoURL
       })
     }
-
-    // Fetch the user's profile photo
-    // getProfilePhoto(user.profilePhotoFilename);
-
     return user;
   }
 
@@ -610,23 +573,6 @@ const App = ({ Component, pageProps, router }) => {
     const favouriteUser = await getUserDataById(userId, requestBody)
     return favouriteUser;
   }
-
-  
-  // const getProfilePhoto = async (filename) => {
-  //   try {
-  //     const res = await axios.get(`http://localhost:5000/file/${filename}`);
-
-  //     const photo = res.data;
-
-  //     setProfilePhoto(photo);
-
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-
 
 
 
@@ -1004,17 +950,8 @@ const App = ({ Component, pageProps, router }) => {
       // .json() is a method from fetch API that auto extracts & parses the res body
       const data = await res.json();
 
-      // console.log(data)
-
       const favourites = data.data.removeFavourite.favourites;
-      // console.log(favourites)
-
-      // Refresh the profile with the new user data - to update the favourites section
-      // fetchProfileUser(id, false)
-
-      // Refresh the currentUser's data to update the add favourite profile button
-      // getUserDataById(currentUser.id)
-
+      
       getUserDataByToken(authState.token);
 
 
@@ -1078,7 +1015,6 @@ const App = ({ Component, pageProps, router }) => {
       allUsers,
       autoplay,
       setAutoplay,
-      // profilePhoto,
       login,
       register,
       logout,
@@ -1107,29 +1043,5 @@ const App = ({ Component, pageProps, router }) => {
     </ContextProvider>
   )
 }
-
-
-// App.getInitialProps = async context => {
-
-//   const res = await fetch('path/to/endpoint', {
-//     headers: {
-//       cookie: ctx.req.headers.cookie,
-//     },
-//   });
-//   const user = await res.json();
-
-//   return { user };
-  
-  // const token = cookie.load('token');
-  // console.log('token from cookie', token);
-  
-  // // if (token) {
-  // //   setAuthState({ ...authState, authenticated: true, token: token}); 
-  // // }
-  // return {token : token};
-// }
-
-
-
 
 export default App;
