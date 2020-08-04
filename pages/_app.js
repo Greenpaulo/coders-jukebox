@@ -166,7 +166,8 @@ const App = ({ Component, pageProps, router }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:${port}/graphql`, {
+      // const res = await fetch(`http://localhost:${port}/graphql`, {
+      const res = await fetch(`https://code-tunes.herokuapp.com/graphql`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {

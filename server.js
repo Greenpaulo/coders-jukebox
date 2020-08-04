@@ -24,8 +24,6 @@ const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
 const cors = require('cors');
 
-console.log(keys.mongoURI);
-
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
   const app = express();
