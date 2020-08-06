@@ -20,7 +20,7 @@ const Logo = () => {
       <style jsx>{`
       svg {
         height: 55px;
-        width: 100px;
+        width: 66px;
         fill: white;
         margin-top: 0.5rem;
       }
@@ -42,6 +42,12 @@ const Logo = () => {
       }
 
       /* Media queries */
+      @media (max-width: 600px){
+        svg {
+          width: 100px
+        }
+      }
+
       @media (max-width: 490px){
         svg {
           width: 90px

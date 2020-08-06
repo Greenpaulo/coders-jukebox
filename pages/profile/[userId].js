@@ -34,7 +34,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="container" id="profile">
+      <div className="container animate__animated animate__fadeIn" id="profile">
         
         <ProfileInfo setEditMode={setEditMode} editMode={editMode} />
 

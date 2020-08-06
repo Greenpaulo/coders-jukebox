@@ -2,8 +2,6 @@ import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
-import Footer from '../components/Footer';
-import WelcomeImage from '../components/WelcomeImage';
 
 const About = () => {
 
@@ -17,8 +15,8 @@ const About = () => {
     <>
     <div className="container">
       <section id="about">
-        <h1>About</h1>
-        <div id="about-text">
+        <h1 className="animate__animated animate__fadeInDown">About</h1>
+          <div id="about-text" className="animate__animated animate__fadeIn">
           <p>
             Welcome to CodeTunes! Inspired by the beautiful fusion of code and music. 
             
@@ -29,12 +27,12 @@ const About = () => {
           </p>
         </div>
 
-        <div id="profile-link">
+          <div id="profile-link" className="animate__animated animate__fadeIn">
           <p id="profile-link-text"> I'm Paul, check my profile to get you started:</p>
           <Link href='/profile/5e8c64714136ca2d1ca024c7'><a id="profile-link-btn">Paul's Profile</a></Link>
         </div>
         
-        <div id="other-links">
+          <div id="other-links" className="animate__animated animate__fadeIn">
         <p>If you like this site then check out my others:</p>
           <ul>
             <li className="link">
@@ -172,6 +170,10 @@ const About = () => {
       font-size: 1.4rem;
     }
 
+    .animate__animated.animate__fadeIn {
+      animation-delay: 0.5s;
+    }
+    
 
     /* Media queries */
     @media (max-width: 1200px) {

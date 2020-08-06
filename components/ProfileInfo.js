@@ -62,7 +62,7 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
 
   return (
     <motion.div variants={profileInfoVariants} initial='hidden' animate='visible'>
-      <section id="user">
+      <section id="user" className="animate__animated animate__fadeIn">
         <div id="profile-photo">
           {profileUser.profilePhotoFilename !== null && profileUser.profilePhotoFilename !== '' &&
             <div className="crop">

@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import Router from 'next/router';
 import { useContext } from 'react';
-import { GlobalContext} from '../context/GlobalContext';
+import { GlobalContext } from '../context/GlobalContext';
 import UserSearch from './UserSearch';
 import colors from '../css-variables/colors'
 import Logo from './Logo';
@@ -14,7 +13,7 @@ const Navbar = () => {
   const logoutHandler = () => {
     logout();
   };
-  
+
   const searchUserHandler = () => {
     console.log('searchUserHandler called');
   }
@@ -28,12 +27,16 @@ const Navbar = () => {
     document.getElementById('hamburger').classList.toggle('open');
     document.getElementById('nav-menu').classList.toggle('dropdown');
   }
-  
 
-  return (    
-      <nav id="navbar">
-        <div className="container">
-          <div id="nav-content">
+
+  return (
+    <nav id="navbar">
+      <div className="container">
+        <div id="nav-content">
+          <div id="logo-container">
+            <div id="logo">
+              <Logo />
+            </div>
             <div id="brand">
               <Link href="/">
                 <a>
@@ -41,63 +44,61 @@ const Navbar = () => {
                 </a>
               </Link>
             </div>
-            <div id="logo">
-              <Logo/>
-            </div>
+          </div>
 
-            <UserSearch />
+          <UserSearch />
 
-            <ul id="nav-menu">
+          <ul id="nav-menu">
             {authState.authenticated && currentUser !== null &&
-            <Link href="/profile/[userId]" as={`/profile/${currentUser.id}`}>
-              <a className="nav-item" onClick={profileNavClickHandler}>
-                <i className="fa fa-user"></i> 
+              <Link href="/profile/[userId]" as={`/profile/${currentUser.id}`}>
+                <a className="nav-item" onClick={profileNavClickHandler}>
+                  <i className="fa fa-user"></i>
                 Profile
               </a>
-            </Link>
+              </Link>
             }
             <Link href="/about">
               <a className="nav-item" onClick={hamburgerHandler}>
-                <i className="fa fa-info"></i> 
+                <i className="fa fa-info"></i>
                 About
               </a>
             </Link>
-            {!authState.authenticated && 
-            <>
-              <Link href="/auth">
-                <a className="nav-item" onClick={hamburgerHandler}>
-                  <i className="fa fa-sign-in"></i> 
+            {!authState.authenticated &&
+              <>
+                <Link href="/auth">
+                  <a className="nav-item" onClick={hamburgerHandler}>
+                    <i className="fa fa-sign-in"></i>
                   Login
                 </a>
-              </Link>
-              <Link href="/auth">
-                <a className="nav-item" onClick={hamburgerHandler}>
-                  <i className="fa fa-user-plus"></i> 
+                </Link>
+                <Link href="/auth">
+                  <a className="nav-item" onClick={hamburgerHandler}>
+                    <i className="fa fa-user-plus"></i>
                   Register
                 </a>
-              </Link>
-            </>
+                </Link>
+              </>
             }
             {authState.authenticated &&
               <Link href="/">
                 <a className="nav-item" onClick={logoutHandler}>
-                  <i className="fa fa-sign-out"></i> 
+                  <i className="fa fa-sign-out"></i>
                   Logout
                 </a>
               </Link>
             }
 
-            </ul>
-            <div id="hamburger" onClick={hamburgerHandler}>
-              <div className="line" id="line1"></div>
-              <div className="line" id="line2"></div>
-              <div className="line" id="line3"></div>
-            </div>
+          </ul>
+          <div id="hamburger" onClick={hamburgerHandler}>
+            <div className="line" id="line1"></div>
+            <div className="line" id="line2"></div>
+            <div className="line" id="line3"></div>
           </div>
         </div>
-        
+      </div>
 
-        <style jsx>{`
+
+      <style jsx>{`
         
           #navbar {
             padding: 1.5rem 0;
@@ -118,6 +119,11 @@ const Navbar = () => {
           #nav-menu {
             display: flex;
             justify-content: space-between;
+          }
+
+          #logo-container {
+            display: flex;
+            align-items: center;
           }
 
           #brand h1 {
@@ -156,9 +162,9 @@ const Navbar = () => {
             left: 12px;
           }
           
-          #logo {
+          /* #logo {
             display: none;
-          }
+          } */
 
           /* Media queries */
           @media (max-width: 1150px){
@@ -172,6 +178,12 @@ const Navbar = () => {
 
             #nav-menu {
               /* width: 35vw; */
+            }
+          }
+
+          @media (max-width: 1140px) {
+            #logo-container {
+              margin-left: 1rem;
             }
           }
 
@@ -261,6 +273,11 @@ const Navbar = () => {
             }
           }
 
+          @media (max-width: 860px) {
+            #logo-container {
+              margin-left: 1rem;
+            }
+          }
 
           @media (max-width: 750px) {
             #main-searchbar {
@@ -286,6 +303,7 @@ const Navbar = () => {
             #logo {
               display: inline;
             }
+
           }
 
           @media (max-width: 570px) {
@@ -319,7 +337,7 @@ const Navbar = () => {
           
 
         `}</style>
-      </nav>
+    </nav>
     // )}
     // </GlobalContext.Consumer>
   )
