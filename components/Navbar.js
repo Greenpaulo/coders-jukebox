@@ -245,6 +245,7 @@ const Navbar = () => {
 
             #hamburger {
               cursor: pointer;
+              margin-right: 0.5rem;
             }
 
             #hamburger.open #line1 {
