@@ -93,7 +93,6 @@ nextApp.prepare().then(() => {
   app.post('*/upload', upload.single('file'), async (req, res) => {
     // Also add the filename to the user's data
     try {
-      console.log(req.userId)
       // Get the user's info
       const user = await User.findById(req.userId);
 
@@ -112,7 +111,6 @@ nextApp.prepare().then(() => {
   // @route GET /file/:filename
   // @desc Gets a single file from the uploads collection
   app.get('/file/:filename', (req, res) => {
-    console.log(req.params.filename)
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {

@@ -666,10 +666,7 @@ const App = ({ Component, pageProps, router }) => {
       // .json() is a method from fetch API that auto extracts & parses the res body
       const data = await res.json();
 
-      console.log(data.data.removeVideo)
-
       const videos = data.data.removeVideo.ownedVideos;
-      console.log(videos);
 
       // Check for errors array in response
       if (data.errors) {
@@ -853,8 +850,6 @@ const App = ({ Component, pageProps, router }) => {
         })
         return
       }
-
-      console.log(data.data)
 
       // Refresh the profile with the new user data - to update the comments
       fetchProfileUser(profileUser.id, false)

@@ -3,20 +3,7 @@ import Link from 'next/link';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 import { motion, AnimatePresence } from 'framer-motion';
-import Planet from '../components/Planet';
 import WelcomeImage from '../components/WelcomeImage';
-import WelcomeImage2 from '../components/WelcomeImage2';
-
-const welcomeTextVariants = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: {
-      duration: 2
-    }
-  },
-  exit: { y: -500, opacity: 1 }
-}
 
 const Index = () => {
 
@@ -27,16 +14,10 @@ const Index = () => {
   }, [])
 
   return (
-    // <AnimatePresence exitBeforeEnter>
     <div className="container">
-      {/* <Planet /> */}
-      
-
-
       <section id="welcome">
         
-        <motion.div variants={welcomeTextVariants} initial='hidden' animate='visible' exit='exit'>
-          <div id="welcome-text" >
+        <div id="welcome-text" className="animate__animated animate__fadeIn">
             <h1>CodeTunes</h1>
             <h3>A social music app for coders</h3>
             
@@ -60,8 +41,6 @@ const Index = () => {
               }
             </div>
           </div>
-          
-        </motion.div>
 
         <WelcomeImage />
           

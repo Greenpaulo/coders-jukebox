@@ -40,7 +40,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
           label {
             position: absolute;
-            top: 8px;
+            top: 11px;
             left: 12px;
           }
           
@@ -63,6 +63,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
             font-size: 1.1rem;
             background-color: #fff;
             border: none;
+            font: inherit;
           }
 
           #main-searchbar input :focus {

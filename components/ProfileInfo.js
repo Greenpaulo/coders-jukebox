@@ -65,11 +65,11 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       <section id="user" className="animate__animated animate__fadeIn">
         <div id="profile-photo">
           {profileUser.profilePhotoFilename !== null && profileUser.profilePhotoFilename !== '' &&
-            <div className="crop">
+            <div className="crop animate__animated animate__fadeIn">
             </div>
           }
           {(profileUser.profilePhotoFilename === null || profileUser.profilePhotoFilename === '') &&
-            <div className="crop">
+            <div className="crop animate__animated animate__fadeIn">
               <img src='/default-avatar.jpg' alt="profile-photo" />
             </div>
           }
