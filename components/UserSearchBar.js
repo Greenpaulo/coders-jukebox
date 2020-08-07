@@ -1,17 +1,17 @@
 import { useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
-const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchInput, setSearchInput}) => {
+const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchInput, setSearchInput }) => {
 
   const { allUsers } = useContext(GlobalContext);
 
   useEffect(() => {
     // action on update of searchInput
-      const users = allUsers.filter(user => {
-        return user.name.substr(0, searchInput.length).toUpperCase() === searchInput.toUpperCase()
-      })
+    const users = allUsers.filter(user => {
+      return user.name.substr(0, searchInput.length).toUpperCase() === searchInput.toUpperCase()
+    })
 
-      setFilteredUsers(users)
+    setFilteredUsers(users)
   }, [searchInput]);
 
   const onChangeHandler = (e) => {
@@ -40,7 +40,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
           label {
             position: absolute;
-            top: 11px;
+            top: 8px;
             left: 12px;
           }
           
@@ -63,7 +63,6 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
             font-size: 1.1rem;
             background-color: #fff;
             border: none;
-            font: inherit;
           }
 
           #main-searchbar input :focus {
@@ -92,7 +91,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
           @media (max-width: 420px) {
             #main-searchbar {
-              width: 120%;
+              width: 112%;
             }
           }
 
@@ -105,9 +104,9 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
               font-size: 0.9rem;
             }
 
-            label {
+            /* label {
               top: 7px;
-            }
+            } */
           }
           
   
