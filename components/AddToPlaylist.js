@@ -49,8 +49,6 @@ const AddToPlaylist = () => {
     section {
       margin: 2rem auto 3rem auto;
       width: 84%;
-      /* padding: 3rem; */
-      /* border: 1px solid black; */
       border-radius: 10px;
       color: white;
     }
@@ -58,8 +56,6 @@ const AddToPlaylist = () => {
     #header {
       display: flex;
       background: ${colors.gradient};
-      /* margin: 2rem 0; */
-      /* height: 100%; */
       padding: 2rem;
       border-radius: 10px 10px 0 0;
     }
@@ -71,7 +67,6 @@ const AddToPlaylist = () => {
     }
 
     #videos {
-      /* padding: 1rem; */
       border: 1px solid ${colors.primary};
       border-radius: 0 0 10px 10px;
       border-top: none;

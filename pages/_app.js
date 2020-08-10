@@ -513,8 +513,8 @@ const App = ({ Component, pageProps, router }) => {
 
     })
 
-    //Set video state to be first video in profile user's playlist
-    if (user.ownedVideos.length > 0){
+    //Set video state to be first video in profile user's playlist - but only if initial fetch
+    if (initialFetch === true & user.ownedVideos.length > 0){
       const video = user.ownedVideos[0]
       setCurrentVideo({
         title: video.title,
@@ -592,9 +592,6 @@ const App = ({ Component, pageProps, router }) => {
         }
       `
     }
-
-    // console.log(requestBody)
-    // console.log(authState.token)
 
     try {
       const res = await fetch('/graphql', {

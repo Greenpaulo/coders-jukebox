@@ -20,10 +20,6 @@ const VideoPlayer = () => {
       {profileUser.ownedVideos.length > 0 && videoState.title !== '' &&
         <div id="video-player">
           <iframe width="918" height="567" frameBorder="0" allowFullScreen allow="autoplay" src={videoSrc}></iframe>
-          {/* <VideoInfo /> */}
-          {/* <div id="video-info">
-            <h3>{videoState.title}</h3>
-          </div> */}
         </div>
       }
       
