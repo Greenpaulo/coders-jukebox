@@ -38,8 +38,6 @@ const Searchbar = ({ placeholder, submitHandler }) => {
       }
       
       #main-searchbar {
-        /* margin: auto; */
-        /* margin-left: 3.5rem; */
         display: flex;
         position: relative;
         width: 100%;

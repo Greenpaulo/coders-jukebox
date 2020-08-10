@@ -63,6 +63,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
             font-size: 1.1rem;
             background-color: #fff;
             border: none;
+            font: inherit;
           }
 
           #main-searchbar input :focus {
