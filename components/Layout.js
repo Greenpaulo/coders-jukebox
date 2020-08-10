@@ -7,6 +7,10 @@ const Layout = (props) => (
   <div>
     <Head>
       <title>CodeTunes</title>
+      <meta name="description" content="A social music app for coders"/>
+      <meta charset="utf-8" />
+      <meta name="robots" content="noindex, nofollow"/>
+      <meta name="viewport" content="width=device-width"/>
       <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet"></link>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
       <link
@@ -31,12 +35,8 @@ const Layout = (props) => (
         font-size: 16px;
         font-weight: 400;
         line-height: 1.8em;
-        /* background-color: purple; */
-        /* background-color: #dd00ff; */
-        /* background-color: #fff; */
         background-color: black;
         height: 100vh;
-        /* width: 100vw; */
       }
 
       .container {
