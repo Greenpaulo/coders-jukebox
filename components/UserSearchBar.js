@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
 const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchInput, setSearchInput }) => {
@@ -40,7 +40,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
           label {
             position: absolute;
-            top: 8px;
+            top: 10px;
             left: 12px;
           }
           
@@ -59,11 +59,11 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
           #main-searchbar input {
             width: 100%;
             border-radius: 23px;
-            padding: 0.6rem 0.5rem 0.5rem 2.5rem;
-            font-size: 1.1rem;
+            padding: 0.4rem 0.5rem 0.4rem 2.6rem;
+            font-size: 1.2rem;
             background-color: #fff;
             border: none;
-            font: inherit;
+            font-family: inherit;
           }
 
           #main-searchbar input :focus {
@@ -103,14 +103,18 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
             #main-searchbar input {
               font-size: 0.9rem;
+              padding-left: 2.3rem;
             }
 
-            /* label {
+            label {
               top: 7px;
-            } */
+            }
+
+            svg {
+              height: 24px;
+              width: 20px;
+            }
           }
-          
-  
   
   `}</style>
 
