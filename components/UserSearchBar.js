@@ -40,7 +40,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
           label {
             position: absolute;
-            top: 10px;
+            top: 9px;
             left: 12px;
           }
           
@@ -60,7 +60,7 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
             width: 100%;
             border-radius: 23px;
             padding: 0.4rem 0.5rem 0.4rem 2.6rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             background-color: #fff;
             border: none;
             font-family: inherit;
