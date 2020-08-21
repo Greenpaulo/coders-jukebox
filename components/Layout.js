@@ -8,7 +8,6 @@ const Layout = (props) => (
       <title>CodeTunes</title>
       <meta name="description" content="A social music app for coders"/>
       <meta charSet="utf-8" />
-      <meta name="robots" content="noindex, nofollow"/>
       <meta name="viewport" content="width=device-width"/>
       <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet"></link>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
