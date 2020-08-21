@@ -145,16 +145,6 @@ const UserSearch = () => {
         }
       } 
 
-      /* @media (max-width: 660px) {
-        #search-results {
-          right: 70px;
-        }
-
-        #user-search {
-          margin-left: 0;
-        }
-      }  */
-
       @media (max-width: 660px) {
         #user-search {
           margin-right: 1rem;
@@ -228,11 +218,6 @@ const UserSearch = () => {
           width: 76vw;
         }
       }
-
-
-
-
-      
       `}</style>
 
     </div>

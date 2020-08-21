@@ -3,9 +3,6 @@ import Comment from './Comment';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
-
-
-
 const CommentSection = ({ profileUser }) => {
 
   const { addComment, authState} = useContext(GlobalContext);

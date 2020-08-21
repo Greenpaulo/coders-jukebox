@@ -6,16 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 const editVariants = {
-  hidden: { opacity: 0, y: -500, zIndex: -3},
+  hidden: { opacity: 0, y: -500, zIndex: -10},
   visible: { 
     opacity: 1,
     y: 0,
-    zIndex: -3,
+    zIndex: -10,
     transition: {
       duration: 0.5
     }
   },
-  exit: { opacity: 0, y: -500, zIndex: -3 }
+  exit: { opacity: 0, y: -500, zIndex: -10 }
 }
 
 

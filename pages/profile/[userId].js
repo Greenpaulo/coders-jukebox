@@ -1,9 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
-// import Router from 'next/router'
 import { GlobalContext } from '../../context/GlobalContext';
-// import fetch from 'isomorphic-unfetch';
-import { motion } from 'framer-motion';
 
 import ProfileInfo from '../../components/ProfileInfo';
 import AboutMe from '../../components/AboutMe';
@@ -17,15 +14,13 @@ import Footer from '../../components/Footer';
 
 const Profile = () => {
 
-  const { authState, currentUser, profileUser, setAutoplay, fetchProfileUser, clearProfileUser, addFavourite, removeFavourite} = useContext(GlobalContext);
+  const { currentUser, profileUser, setAutoplay, fetchProfileUser} = useContext(GlobalContext);
 
   // Get the userId from the URL and fetch the profile user's data
   const router = useRouter()
   const { userId } = router.query
   fetchProfileUser(userId, true);
 
-  
-  
   useEffect(() => {
       setAutoplay(false);
     }, [])
@@ -57,7 +52,6 @@ const Profile = () => {
         <Favourites profileUser={profileUser}/>
 
       </div>
-
 
         <style jsx>{`
                   

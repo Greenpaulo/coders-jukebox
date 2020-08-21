@@ -2,7 +2,6 @@ import { useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
-
 const FileUpload = ({setEditMode}) => {
 
   const [file, setFile] = useState('');

@@ -1,4 +1,3 @@
-
 const FlashMessage = ({message, type}) => {
   
   let color;

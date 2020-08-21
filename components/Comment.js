@@ -32,14 +32,7 @@ const Comment = ({comment}) => {
     fetchData();
   }, [])
 
-  // const [content, setContent] = useState('');
-
-  // const handleChange = (e) => {
-  //   setContent(e.target.value);
-  // }
-
-  
-  const editCommentClickHandler = () => {
+ const editCommentClickHandler = () => {
     //Show the edit comment textarea
     setEditMode(!editMode); 
   }
@@ -214,8 +207,6 @@ const Comment = ({comment}) => {
 
       p {
         margin: 0 1.5rem;
-        /* overflow-y: scroll; */
-        /* height: 100px; */
         word-wrap: break-word;
         width: 650px;
       }
@@ -489,22 +480,18 @@ const Comment = ({comment}) => {
     @media (max-width: 440px) {
       p {
         width: 63vw;
-        /* font-size: 0.9rem; */
       }
     }
 
     @media (max-width: 420px) {
       p {
         width: 69vw;
-        /* font-size: 0.9rem; */
       }
     }
 
     @media (max-width: 360px) {
       p {
         width: 65vw;
-        /* font-size: 0.8rem; */
-        /* margin-left: 1rem; */
       }
 
     }
@@ -515,9 +502,5 @@ const Comment = ({comment}) => {
   </>
   )
 }
-
-// Comment.getInitialProps = async ctx => {
-//   getCommentData
-// }
 
 export default Comment;

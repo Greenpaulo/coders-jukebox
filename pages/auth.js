@@ -1,6 +1,5 @@
 import {useRef, useContext, useState, useEffect} from 'react';
 import { GlobalContext } from '../context/GlobalContext';
-import Router from 'next/router';
 import colors from '../css-variables/colors'
 import FlashMessage from '../components/FlashMessage';
 import Spinner from '../components/Spinner';

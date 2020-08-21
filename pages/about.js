@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
+console.log(process.ENV);
 const About = () => {
-
+  
   const { clearProfileUser } = useContext(GlobalContext);
-
+  
   useEffect(() => {
     clearProfileUser();
   }, [])
@@ -29,7 +30,12 @@ const About = () => {
 
           <div id="profile-link" className="animate__animated animate__fadeIn">
           <p id="profile-link-text"> I'm Paul, check my profile to get you started:</p>
-          <Link href='/profile/5e8c64714136ca2d1ca024c7'><a id="profile-link-btn">Paul's Profile</a></Link>
+          {process.env.NODE_ENV === 'production' &&
+            <Link href='/profile/5f294c1a03ac1c001759653b'><a id="profile-link-btn">Paul's Profile</a></Link>
+          }
+          {process.env.NODE_ENV === 'development' &&
+            <Link href='/profile/5f27f637ca51cf3d00144d22'><a id="profile-link-btn">Paul's Profile</a></Link>
+          }
         </div>
         
           <div id="other-links" className="animate__animated animate__fadeIn">

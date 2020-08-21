@@ -1,29 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
-import { motion } from 'framer-motion';
-
-const profileInfoVariants = {
-  // hidden: { opacity: 0, position: 'relative'},
-  // visible: { 
-  //   opacity: 1,
-  //   position: 'relative',
-  //   transition: {
-  //     duration: 1.5
-  //   }
-  // }
-}
-
-// const infoVariants = {
-//   hidden: { opacity: 0, margin: auto },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       duration: 1.5,
-//       delay: 1
-//     }
-//   }
-// }
 
 const ProfileInfo = ({ setEditMode, editMode }) => {
 
@@ -61,7 +38,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
   }
 
   return (
-    <motion.div variants={profileInfoVariants} initial='hidden' animate='visible'>
       <section id="user" className="animate__animated animate__fadeIn">
         <div id="profile-photo">
           {profileUser.profilePhotoFilename !== null && profileUser.profilePhotoFilename !== '' &&
@@ -86,7 +62,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
           <div id="buttons">
             {profileUser.id === currentUser.id &&
               <i className="fa fa-cog fa-2x" id="profile-edit-cog" aria-hidden="true" onClick={() => setEditMode(!editMode)}></i>
-              // <button id="profile-edit-btn" onClick={showProfileEditSection}><i className="fa fa-cog" aria-hidden="true"></i></button>
             }
             {profileUser.id !== currentUser.id && !(currentUser.favourites.includes(profileUser.id)) && authState.authenticated === true &&
               <button id="add-favourite" onClick={addFavouriteHandler}>
@@ -100,28 +75,21 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
             }
           </div>
         </div>
-      </section>
 
 
       <style jsx>{`
 
       section {
-        /* padding: 3rem; */
-        /* border: 1px solid white; */
         border-radius: 10px;
         margin-top: 1rem;
-        /* z-index: 2; */
       }
       
       #user {
-        margin: 2rem 0;
+        margin: 3rem 0 2rem 0;
         display: flex;
         justify-content: space-between;
-        /* background: #FF416C; */
         background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
         background: linear-gradient(to right, #FF4B2B, #FF416C);
-        /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-          0 10px 10px rgba(0,0,0,0.22); */
       }
 
       #user h1 {
@@ -189,7 +157,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
         overflow: hidden;
         border-radius: 50%;
         background-image: url('/image/${profileUser.profilePhotoFilename}');
-        /* background-position: center; */
         background-size: cover;
       }
       
@@ -238,7 +205,7 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       @media (max-width: 800px) {
         #profile-photo {
           padding: 0;
-          margin: 3.5rem auto 3rem auto;
+          margin: 3rem auto 3rem auto;
         }
       }
 
@@ -358,7 +325,7 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
     
     `}</style>
 
-    </motion.div>
+    </section>
   )
 }
 

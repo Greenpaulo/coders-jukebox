@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Navbar from './Navbar';
 import colors from '../css-variables/colors';
 
-
 const Layout = (props) => (
   <div>
     <Head>

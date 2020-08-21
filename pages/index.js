@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
-import { motion, AnimatePresence } from 'framer-motion';
 import WelcomeImage from '../components/WelcomeImage';
 
 const Index = () => {

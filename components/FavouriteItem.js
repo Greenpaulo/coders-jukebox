@@ -3,10 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
-
-
 const FavouriteItem = ({id}) => {
-
 
   const { getFavouriteUser, fetchProfileUser, removeFavourite, currentUser, profileUser, authState } = useContext(GlobalContext);
   

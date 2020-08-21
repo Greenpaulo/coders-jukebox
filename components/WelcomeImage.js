@@ -57,50 +57,14 @@ const WelcomeImage = () => {
 
   <style jsx>{`
       svg {
-        /* height: 764px; */
         height: 700px;
         width: 800px;
-        /* margin: 2rem; */
-        /* padding: 1rem; */
         fill: ${colors.primary};
       }
 
       .st0 {
         fill: ${colors.primary};
       }
-
-      /* path {
-
-        fill: ${colors.primary};
-
-        filter: url(#f2);
-
-        box-shadow:
-          0 0 20px #fff,
-          -20px 0 80px #f0f,
-          20px 0 80px #0ff,
-          inset 0 0 50px #fff,
-          inset 50px 0 80px #f0f,
-          inset -50px 0 80px #0ff,
-          inset 50px 0 300px #f0f,
-          inset -50px 0 300px #0ff;
-        animation: pulsate 6s linear infinite;
-      
-
-        @keyframes pulsate {
-          50% {
-            box-shadow:
-              0 0 20px #fff,
-              20px 0 80px #f0f,
-              -20px 0 80px #0ff,
-              inset 0 0 50px #fff,
-              inset -50px 0 80px #f0f,
-              inset 50px 0 80px #0ff,
-              inset -50px 0 300px #f0f,
-              inset 50px 0 300px #0ff;
-          }
-        }
-      } */
 
     /* Media queries */
     @media (max-width: 1024px) {
@@ -116,9 +80,6 @@ const WelcomeImage = () => {
     }
   
   `}</style>
-
-
-
 
     </svg>
   )

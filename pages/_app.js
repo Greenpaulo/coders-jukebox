@@ -2,11 +2,7 @@ import ContextProvider from '../context/ContextProvider';
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
 import Router from 'next/router';
-import cookie from 'react-cookies';
 import axios from 'axios';
-// import { empty } from 'apollo-boost';
-import { AnimatePresence } from 'framer-motion';
-import keys from '../config/keys';
 
 const App = ({ Component, pageProps, router }) => {
 
@@ -1028,9 +1024,7 @@ const App = ({ Component, pageProps, router }) => {
       uploadFile
     }}>
       <Layout>
-        <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} />
-        </AnimatePresence>
       </Layout>
     </ContextProvider>
   )
