@@ -34,11 +34,11 @@ const Navbar = () => {
       <div className="container">
         <div id="nav-content">
           <div id="logo-container">
-            <div id="logo">
-              <Link href="/">
+            <Link href="/">
+              <div id="logo">
                 <Logo />
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div id="brand">
               <Link href="/">
                 <a>
@@ -105,10 +105,7 @@ const Navbar = () => {
           #navbar {
             padding: 1.5rem 0;
             border-bottom: 1px solid black;
-            /* margin-bottom: 2rem; */
             background: ${colors.gradient};
-            /* color: white; */
-            /* background-color: #93fffb; */
           }
         
           #nav-content {
@@ -126,6 +123,7 @@ const Navbar = () => {
           #logo-container {
             display: flex;
             align-items: center;
+            cursor: pointer;
           }
 
           #brand h1 {
@@ -164,10 +162,6 @@ const Navbar = () => {
             left: 12px;
           }
           
-          /* #logo {
-            display: none;
-          } */
-
           /* Media queries */
           @media (max-width: 1150px){
             #nav-content {
@@ -176,10 +170,6 @@ const Navbar = () => {
 
             h1 {
               margin-left: 2rem;
-            }
-
-            #nav-menu {
-              /* width: 35vw; */
             }
           }
 
@@ -217,7 +207,6 @@ const Navbar = () => {
               -moz-box-shadow: -11px 10px 19px -10px rgba(0,0,0,0.27);
               box-shadow: -11px 10px 19px -10px rgba(0,0,0,0.27);
               background: ${colors.primary};
-              /* opacity: 0.9; */
             }
 
             #nav-menu.dropdown {
@@ -238,7 +227,6 @@ const Navbar = () => {
               margin-right: 1rem;
               width: 1.5rem;
               font-size: 1.5rem;
-              /* background: black; */
               text-align: center;
               height: 100%;
               padding-top: 0.5rem;
