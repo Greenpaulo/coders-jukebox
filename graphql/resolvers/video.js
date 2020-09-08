@@ -21,8 +21,6 @@ module.exports = {
       throw new Error('Unauthenticated!');
     } 
 
-    // console.log('args', args);
-
     // Create a new video object
     const video = new Video({
       title: args.videoInput.title,
@@ -31,13 +29,8 @@ module.exports = {
       owner: req.userId // Mongoose will convert this to Object ID
     })
 
-    // console.log(video)
-    // let ownedVideo;
-
     // Save the video into the videos collection
     const res = await video.save();
-
-    // ownedVideo = { ...res._doc, _id: video.id };
 
     try {
       // Find the user associated who choose the video
@@ -91,6 +84,5 @@ module.exports = {
       throw err;
     }
   }
-
   
 }

@@ -894,11 +894,6 @@ const App = ({ Component, pageProps, router }) => {
         return
       }
 
-      
-      // Refresh the currentUser's data to update the add favourite profile button
-      // getUserDataById(currentUser.id)
-      // Refresh the profile with the new user data - to update the favourites section
-      // fetchProfileUser(id, false)
       getUserDataByToken(authState.token);
 
     } catch (err) {
@@ -986,11 +981,6 @@ const App = ({ Component, pageProps, router }) => {
     }
 
   }
-
-
-  
-  
-  
   
   return (
     <ContextProvider value={{
