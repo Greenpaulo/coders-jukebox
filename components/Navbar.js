@@ -35,7 +35,9 @@ const Navbar = () => {
         <div id="nav-content">
           <div id="logo-container">
             <div id="logo">
-              <Logo />
+              <Link href="/">
+                <Logo />
+              </Link>
             </div>
             <div id="brand">
               <Link href="/">

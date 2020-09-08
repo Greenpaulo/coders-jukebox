@@ -63,6 +63,12 @@ nextApp.prepare().then(() => {
     gfs = Grid(conn.db, mongoose.mongo);
     gfs.collection('uploads');
   });
+  // conn.once("open", () => {
+  //   // init stream
+  //   gfs = new mongoose.mongo.GridFSBucket(conn.db, {
+  //     bucketName: "uploads"
+  //   });
+  // });
 
   // Create storage engine
   const storage = new GridFsStorage({
@@ -112,6 +118,7 @@ nextApp.prepare().then(() => {
   // @desc Gets a single file from the uploads collection
   app.get('/file/:filename', (req, res) => {
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // gfs.find({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
         return res.status(404).json({
@@ -127,6 +134,7 @@ nextApp.prepare().then(() => {
   // @desc Display Image
   app.get('/image/:filename', (req, res) => {
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // gfs.find({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
         return res.status(404).json({
