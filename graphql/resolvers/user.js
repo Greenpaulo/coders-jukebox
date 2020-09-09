@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const session = require('express-session');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
+const keys = require('../../config/keys');
 
 module.exports = {
   // Query all users
@@ -124,7 +125,7 @@ module.exports = {
     }
     // Create the token
     const token = jwt.sign(
-      { userId: user.id, email: user.email }, "ojwafwe5f1weeD4F4fwfwjkjK5SHhwqFlfj6hewjf1EFDSF5SDFjn6Suvref564f", 
+      { userId: user.id, email: user.email }, keys.jwtSecret, 
     );
 
     // Create a session for the user - set the user id on the session
