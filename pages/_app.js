@@ -53,11 +53,8 @@ const App = ({ Component, pageProps, router }) => {
   // Current profiles user data
   const [profileUser, setProfileUser] = useState(emptyUser);
 
-  // const [profilePhoto, setProfilePhoto] = useState(null);
-  
   const [videoState, setVideoState] = useState({
     title: '',
-    // description:'',
     videoId: ''
   });
 

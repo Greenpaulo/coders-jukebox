@@ -23,11 +23,6 @@ const ProfileEdit = ({setEditMode}) => {
 
   const { updateUser, profileUser, uploadPhoto } = useContext(GlobalContext);
 
-  // // Fetch the updated profile info to prefill form
-  // useEffect(() => {
-  //   fetchProfileUser(userId, false);
-  // }
-
   // Prefill the form with the current info
   const [ profileInfo, setProfileInfo ] = useState({
     firstName: profileUser.firstName,
@@ -152,9 +147,6 @@ const ProfileEdit = ({setEditMode}) => {
           <FileUpload setEditMode={setEditMode}/>
         </div>
 
-        {/* <button id="cancel" onClick={() => setEditMode(false)}>
-          <i className="fa fa-times" aria-hidden="true"></i>
-        </button> */}
         <div id="cancel-btn">
           <i className="fa fa-times-circle fa-2x" id="cancel" aria-hidden="true" onClick={() => setEditMode(false)}></i>
         </div>
@@ -167,7 +159,6 @@ const ProfileEdit = ({setEditMode}) => {
       <style jsx>{`
       
         section {
-          /* padding: 3rem; */
           border: 1px solid white;
           border-radius: 10px;
           margin-top: 1rem;
@@ -233,10 +224,6 @@ const ProfileEdit = ({setEditMode}) => {
           margin-top: 1rem;
         }
 
-        #cancel-btn {
-          /* cursor: pointer; */
-        }
-        
         i {
           margin: 0.85rem;
           cursor: pointer;
@@ -264,10 +251,6 @@ const ProfileEdit = ({setEditMode}) => {
             flex-direction: column;
             position: relative;
           }
-
-          /* textarea {
-            width: 95%;
-          } */
 
           #col1 {
             padding-bottom: 1rem;

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const session = require('express-session');
+// const session = require('express-session');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
 const keys = require('../../config/keys');
@@ -130,10 +130,10 @@ module.exports = {
 
     // Create a session for the user - set the user id on the session
     // Express-session will add a cookie for the user
-    const options = {
-      maxAge: 1000 * 60 * 60 * 24, //expires in a day
-      domain: 'http://localhost:3000'
-    }
+    // const options = {
+    //   maxAge: 1000 * 60 * 60 * 24, //expires in a day
+    //   domain: 'http://localhost:3000'
+    // }
     return { userId: user.id, token: token}
   }
 }

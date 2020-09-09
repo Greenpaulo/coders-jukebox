@@ -43,15 +43,7 @@ const Index = () => {
 
         <WelcomeImage />
           
-
-
-        {/* <div id="welcome-img">
-          <img src='/keyboard3.jpg' />    
-        </div> */}
       </section>
-      {/* </div> */}
-
-
 
 
 
