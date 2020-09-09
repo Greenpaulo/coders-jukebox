@@ -1,5 +1,5 @@
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const keys = require('../config/keys');
 
 module.exports = (req, res, next) => {
   // Check for an authorization header in the incoming request
@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
   // If token exists check its valid
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, 'ojwafwe5f1weeD4F4fwfwjkjK5SHhwqFlfj6hewjf1EFDSF5SDFjn6Suvref564f')
+    decodedToken = jwt.verify(token, keys.jwtSecret)
   } catch (err) {
     req.isAuth = false;
     return next()
@@ -28,6 +28,7 @@ module.exports = (req, res, next) => {
     return next()
   }
   req.isAuth = true;
+  // Jwt.verify returns an object with decoded userId
   req.userId = decodedToken.userId;
   next(); 
 }

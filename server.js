@@ -2,7 +2,6 @@ const express = require('express')
 const next = require('next')
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
-// const session = require('express-session');
 const User = require('./models/User');
 const keys = require('./config/keys');
 

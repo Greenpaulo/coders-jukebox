@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const session = require('express-session');
 // Creates an instance of our models (DB collection).
 const User = require('../../models/User');
 const keys = require('../../config/keys');
