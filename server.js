@@ -22,10 +22,14 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler();
 const cors = require('cors');
+const helmet = require("helmet");
 
 // Integrating Next.js with Express
 nextApp.prepare().then(() => {
   const app = express();
+
+  // Add helmet middleware to secure app by setting HTTP headers
+  app.use(helmet());
 
   // Allow cross-origin
   app.use(cors());
