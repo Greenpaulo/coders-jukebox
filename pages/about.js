@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
-console.log(process.ENV);
 const About = () => {
   
   const { clearProfileUser } = useContext(GlobalContext);

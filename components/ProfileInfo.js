@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import colors from '../css-variables/colors';
 
 const ProfileInfo = ({ setEditMode, editMode }) => {
 
-  const { authState, currentUser, profileUser, fetchProfileUser, clearProfileUser, addFavourite, removeFavourite } = useContext(GlobalContext);
-
-  const [isFavourite, setIsFavourite] = useState(false)
+  const { authState, currentUser, profileUser, addFavourite, removeFavourite } = useContext(GlobalContext);
 
   const addFavouriteHandler = () => {
     addFavourite(profileUser.id);
@@ -41,7 +39,7 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       <section id="user" className="animate__animated animate__fadeIn">
         <div id="profile-photo">
           {profileUser.profilePhotoFilename !== null && profileUser.profilePhotoFilename !== '' &&
-            <div className="crop animate__animated animate__fadeIn">
+            <div className="crop animate__animated animate__fadeIn" id="user-photo">
             </div>
           }
           {(profileUser.profilePhotoFilename === null || profileUser.profilePhotoFilename === '') &&
@@ -156,8 +154,11 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
         height: 266px;
         overflow: hidden;
         border-radius: 50%;
-        background-image: url('/image/${profileUser.profilePhotoFilename}');
         background-size: cover;
+      }
+
+      #user-photo {
+        background-image: url('/image/${profileUser.profilePhotoFilename}');
       }
       
       img {
