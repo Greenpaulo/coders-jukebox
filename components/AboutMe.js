@@ -20,12 +20,11 @@ const AboutMe = ({profileUser}) => {
     <style jsx>{`
     
       section#about-me {
-        /* background  : ${colors.reversePinkGradient}; */
-        border: 1px solid ${colors.primary};
         border-radius: 10px;
         padding: 2rem;
         width: 84%;
         margin: 3rem auto;
+        border: 1px solid ${colors.primary};
       }
 
       p {

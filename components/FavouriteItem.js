@@ -135,13 +135,11 @@ const FavouriteItem = ({id}) => {
 
           img {
             width: 80px;
-            /* padding-top: 1rem; */
           }
 
           #avatar {
             margin-top: 1rem;
           }
-
         }
       
       

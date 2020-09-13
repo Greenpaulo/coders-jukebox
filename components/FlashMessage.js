@@ -24,10 +24,6 @@ const FlashMessage = ({message, type}) => {
         border-radius: 5px;
       }
 
-      #message-text {
-        /* font-weight: bold; */
-      }
-
       @media (max-height: 870px) {
         #message {
           padding: 2px 15px;

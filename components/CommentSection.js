@@ -109,31 +109,24 @@ const CommentSection = ({ profileUser }) => {
       @media (max-width: 660px ) {
         section#comment-section {
           width: 95%;
-          /* margin: auto; */
         }
       }
 
       @media (max-width: 620px ) {
         section#comment-section {
-          width: 95%;
           padding: 2rem;
-          /* margin: auto; */
         }
       }
 
       @media (max-width: 390px ) {
         section#comment-section {
-          width: 95%;
           padding: 1.5rem;
-          /* margin: auto; */
         }
       }
 
       @media (max-width: 360px ) {
         section#comment-section {
-          /* width: 95%; */
           padding: 1rem;
-          /* margin: auto; */
         }
       }
     

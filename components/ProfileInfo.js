@@ -114,7 +114,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       }
 
       #user-info {
-        /* height: 100%; */
         width: 61%;
         padding: 3rem;
         display: flex;
@@ -141,8 +140,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
         height: 50px;
         width: 50px;
         position: relative;
-        
-        /* height: 10%; */
       }
 
       #playlist {
@@ -190,7 +187,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
 
         .crop {
           margin: auto;
-          /* width: 80%; */
         }
 
         #user-info {
@@ -213,8 +209,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       @media (max-width: 768px) {
         #user-info {
           position: relative;
-          /* padding: 0; */
-          /* text-align: center; */
         }
 
         #info {
@@ -222,10 +216,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
           margin: auto;
         }
 
-        h1 {
-          /* text-align: center; */
-        }
-        
         #buttons {
           position: absolute;
           right: 21px;
