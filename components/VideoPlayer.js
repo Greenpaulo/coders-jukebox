@@ -25,7 +25,6 @@ const VideoPlayer = () => {
       
 
   <style jsx>{`
-  
     #video-container {
       margin-top: 3rem;
     }
@@ -47,11 +46,6 @@ const VideoPlayer = () => {
       margin-top: 1rem;
       text-align: center;
     }
-/* 
-    h3 {
-      width: 80%;
-      margin: auto;
-    } */
 
     /* Media queries */
     @media (max-width: 1150px ) {
@@ -68,29 +62,21 @@ const VideoPlayer = () => {
 
     @media (max-width: 1000px ) {
       iframe {
-        /* width: 85vw; */
       }
     }
 
     @media (max-width: 580px ) {
       #video-player {
         width: 91%;
-        /* height: 50%; */
       }
 
       iframe {
         height: 33vh;
       }
     }
-  
-  
-  
+
   `}</style>
-
-
-
-
-    </div>
+  </div>
   )
 }
 

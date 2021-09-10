@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import FileUpload from './FileUpload';
 import colors from '../css-variables/colors';
@@ -21,7 +21,7 @@ const editVariants = {
 
 const ProfileEdit = ({setEditMode}) => {
 
-  const { updateUser, profileUser, uploadPhoto } = useContext(GlobalContext);
+  const { updateUser, profileUser } = useContext(GlobalContext);
 
   // Prefill the form with the current info
   const [ profileInfo, setProfileInfo ] = useState({
@@ -134,7 +134,6 @@ const ProfileEdit = ({setEditMode}) => {
                 
               </div>
             </div>
-            
           </form>
         </div>
 
@@ -151,13 +150,11 @@ const ProfileEdit = ({setEditMode}) => {
           <i className="fa fa-times-circle fa-2x" id="cancel" aria-hidden="true" onClick={() => setEditMode(false)}></i>
         </div>
         
-      
       </div>
       </section>
 
 
       <style jsx>{`
-      
         section {
           border: 1px solid white;
           border-radius: 10px;

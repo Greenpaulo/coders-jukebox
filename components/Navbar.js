@@ -321,15 +321,8 @@ const Navbar = () => {
             }
           }
 
-          
-
-            
-          
-
         `}</style>
     </nav>
-    // )}
-    // </GlobalContext.Consumer>
   )
 };
 

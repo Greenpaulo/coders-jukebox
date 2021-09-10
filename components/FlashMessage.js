@@ -13,7 +13,6 @@ const FlashMessage = ({message, type}) => {
     
     
     <style jsx>{`
-    
       #message {
         color: white;
         background-color: ${color};
@@ -30,10 +29,8 @@ const FlashMessage = ({message, type}) => {
         }
       }
     
-    
     `}</style>
-
-      </div>
+    </div>
   )
 }
 

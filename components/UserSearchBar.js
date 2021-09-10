@@ -21,9 +21,6 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-
-    // Call the relevant submit handler from props
-    // submitHandler(searchInput);
   }
 
   return (
@@ -37,87 +34,85 @@ const UserSearchbar = ({ placeholder, setFilteredUsers, checkSearchMode, searchI
 
 
       <style jsx>{`
+        label {
+          position: absolute;
+          top: 9px;
+          left: 12px;
+        }
+        
+        #main-searchbar {
+          margin: auto;
+          display: flex;
+          position: relative;
+          width: 75%;
+          font: inherit;
+        }
 
-          label {
-            position: absolute;
-            top: 9px;
-            left: 12px;
+        #main-searchbar form {
+          width: 100%
+        }
+
+        #main-searchbar input {
+          width: 100%;
+          border-radius: 23px;
+          padding: 0.4rem 0.5rem 0.4rem 2.6rem;
+          font-size: 1.1rem;
+          background-color: #fff;
+          border: none;
+          font-family: inherit;
+        }
+
+        #main-searchbar input :focus {
+          outline: none;
+        }
+
+        /* Media queries */
+        @media (max-width: 950px){
+          #main-searchbar {
+            margin: 0;
+            width: 90%;
           }
-          
+        }
+
+        @media (max-width: 660px){
           #main-searchbar {
             margin: auto;
-            display: flex;
-            position: relative;
-            width: 75%;
-            font: inherit;
           }
+        }
 
-          #main-searchbar form {
-            width: 100%
+        @media (max-width: 600px){
+          #main-searchbar {
+            width: 110%;
+          }
+        }
+
+        @media (max-width: 420px) {
+          #main-searchbar {
+            width: 112%;
+          }
+        }
+
+        @media (max-width: 370px) {
+          #main-searchbar {
+            width: 130%;
           }
 
           #main-searchbar input {
-            width: 100%;
-            border-radius: 23px;
-            padding: 0.4rem 0.5rem 0.4rem 2.6rem;
-            font-size: 1.1rem;
-            background-color: #fff;
-            border: none;
-            font-family: inherit;
+            font-size: 0.9rem;
+            padding-left: 2.3rem;
           }
 
-          #main-searchbar input :focus {
-            outline: none;
+          label {
+            top: 7px;
           }
 
-          /* Media queries */
-          @media (max-width: 950px){
-            #main-searchbar {
-              margin: 0;
-              width: 90%;
-            }
+          svg {
+            height: 24px;
+            width: 20px;
           }
-
-          @media (max-width: 660px){
-            #main-searchbar {
-              margin: auto;
-            }
-          }
-
-          @media (max-width: 600px){
-            #main-searchbar {
-              width: 110%;
-            }
-          }
-
-          @media (max-width: 420px) {
-            #main-searchbar {
-              width: 112%;
-            }
-          }
-
-          @media (max-width: 370px) {
-            #main-searchbar {
-              width: 130%;
-            }
-
-            #main-searchbar input {
-              font-size: 0.9rem;
-              padding-left: 2.3rem;
-            }
-
-            label {
-              top: 7px;
-            }
-
-            svg {
-              height: 24px;
-              width: 20px;
-            }
-          }
+        }
   
-  `}</style>
-
+      `}</style>
     </div>
   )
 }

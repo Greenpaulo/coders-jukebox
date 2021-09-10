@@ -99,11 +99,7 @@ const Searchbar = ({ placeholder, submitHandler }) => {
         }
       }
 
-      
-    
     `}</style>
-
-          
     </div>
   )
 }

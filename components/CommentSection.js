@@ -46,9 +46,7 @@ const CommentSection = ({ profileUser }) => {
       }
 
 
-
-      <style jsx>{`
-    
+    <style jsx>{`
       section#comment-section {
         margin: 3rem 0;
         padding: 3rem;
@@ -90,7 +88,6 @@ const CommentSection = ({ profileUser }) => {
       font-size: 1rem;
       font-weight: bold;
       transition: background-color 0.2s ease-in-out;
-
       }
 
       button:hover {
@@ -131,7 +128,6 @@ const CommentSection = ({ profileUser }) => {
       }
     
     `}</style>
-
     </section>
   )
 }

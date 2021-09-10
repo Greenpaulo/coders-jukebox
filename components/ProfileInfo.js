@@ -75,7 +75,7 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
         </div>
 
 
-      <style jsx>{`
+    <style jsx>{`
 
       section {
         border-radius: 10px;
@@ -315,7 +315,6 @@ const ProfileInfo = ({ setEditMode, editMode }) => {
       }
     
     `}</style>
-
     </section>
   )
 }

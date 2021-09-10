@@ -16,9 +16,7 @@ const AboutMe = ({profileUser}) => {
       }
     
     
-    
     <style jsx>{`
-    
       section#about-me {
         border-radius: 10px;
         padding: 2rem;
@@ -63,7 +61,6 @@ const AboutMe = ({profileUser}) => {
           font-size: 1rem;
           padding: 0.5rem;
         }
-
       }
 
     `}</style>

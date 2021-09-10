@@ -51,9 +51,7 @@ const Comment = ({comment}) => {
   
   const convertDate= (millisecs) => {
     const d = new Date(+millisecs);
-    // return d.toLocaleString();
     const dateArray = d.toLocaleString().split(", ");
-    // console.log(array);
     return dateArray
   }
 
@@ -138,17 +136,11 @@ const Comment = ({comment}) => {
             </div>
           </div>
         }  
-
-        
-
       </div>
-
     </>
-
     
 
-      <style jsx>{`
-
+    <style jsx>{`
       .comment {
         display: flex;
         justify-content: space-between;
@@ -333,11 +325,6 @@ const Comment = ({comment}) => {
       .content {
         padding-left: 0.5rem;
       }
-
-      /* .comment {
-        flex-direction: column;
-        justify-content: center;
-      } */
     }
 
     @media (max-width: 860px) {
@@ -407,25 +394,18 @@ const Comment = ({comment}) => {
     @media (max-width: 800px ) {
       p {
         width: 59vw;
-        /* margin-right: 0.5rem; */
       }
     }
 
 
     /* Media queries */
     @media (max-width: 768px ) {
-      .avatar {
-        /* display: none; */
-      }
 
       .commenter {
         border-right: none;
       }
       
       p {
-        /* overflow: scroll; */
-        /* height: 100px; */
-        /* word-wrap: break-word; */
         width: 55vw;
       }
 
@@ -456,7 +436,6 @@ const Comment = ({comment}) => {
 
     @media (max-width: 560px) {
       p {
-        /* width: 45vw; */
         font-size: 0.9rem;
       }
     }
@@ -464,7 +443,6 @@ const Comment = ({comment}) => {
     @media (max-width: 500px) {
       p {
         width: 65vw;
-        /* font-size: 0.9rem; */
       }
 
       .comment {
@@ -493,12 +471,9 @@ const Comment = ({comment}) => {
       p {
         width: 65vw;
       }
-
     }
-
   
     `}</style>
-
   </>
   )
 }

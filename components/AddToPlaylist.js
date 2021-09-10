@@ -44,78 +44,74 @@ const AddToPlaylist = () => {
         })}
       </div>
 
-  <style jsx>{`
+      <style jsx>{`
+        section {
+          margin: 2rem auto 3rem auto;
+          width: 84%;
+          border-radius: 10px;
+          color: white;
+        }
+      
+        #header {
+          display: flex;
+          background: ${colors.gradient};
+          padding: 2rem;
+          border-radius: 10px 10px 0 0;
+        }
 
-    section {
-      margin: 2rem auto 3rem auto;
-      width: 84%;
-      border-radius: 10px;
-      color: white;
-    }
-  
-    #header {
-      display: flex;
-      background: ${colors.gradient};
-      padding: 2rem;
-      border-radius: 10px 10px 0 0;
-    }
+        h2 {
+          color: white;
+          margin-right: 7rem;
+          width: 25%;
+        }
 
-    h2 {
-      color: white;
-      margin-right: 7rem;
-      width: 25%;
-    }
+        #videos {
+          border: 1px solid ${colors.primary};
+          border-radius: 0 0 10px 10px;
+          border-top: none;
+        }
 
-    #videos {
-      border: 1px solid ${colors.primary};
-      border-radius: 0 0 10px 10px;
-      border-top: none;
-    }
+        h3 {
+          padding: 2rem;
+          text-align: center;
+        }
 
-    h3 {
-      padding: 2rem;
-      text-align: center;
-    }
+        /* Media queries */
+        @media (max-width: 1100px) {
+          h2 {
+            min-width: 26%;
+            margin-right: 1rem;
+          }
+        }
 
-    /* Media queries */
-    @media (max-width: 1100px) {
-      h2 {
-        min-width: 26%;
-        margin-right: 1rem;
-      }
-    }
+        @media (max-width: 830px) {
+          #header {
+            flex-direction: column;
+          }
 
-    @media (max-width: 830px) {
-      #header {
-        flex-direction: column;
-      }
+          h2 {
+            margin-bottom: 1.5rem;
+            min-width: 60%;
+          }
+        }
 
-      h2 {
-        margin-bottom: 1.5rem;
-        min-width: 60%;
-      }
-    }
+        @media (max-width: 520px) {
+          #header {
+            padding: 1.5rem;
+          }
+        }
 
-    @media (max-width: 520px) {
-      #header {
-        padding: 1.5rem;
-      }
-    }
+        @media (max-width: 355px) {
+          h2 {
+            min-width: 100%;
+          }
 
-    @media (max-width: 355px) {
-      h2 {
-        min-width: 100%;
-      }
+          h3 {
+            padding: 1.5rem;
+          }
+        }
 
-      h3 {
-        padding: 1.5rem;
-      }
-    }
-
-  `}</style>
-
-
-
+      `}</style>
     </section>
   )
 }

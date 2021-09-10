@@ -1,4 +1,3 @@
-import colors from '../css-variables/colors';
 
 const Logo = () => {
   return (
@@ -16,7 +15,7 @@ const Logo = () => {
 		c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V74.8z M69.9,72.7V54c4.5,0.7,8,4.6,8,9.4C77.9,68.1,74.4,72,69.9,72.7z"/>
       </g>
 
-      <style jsx>{`
+    <style jsx>{`
       svg {
         height: 55px;
         width: 66px;
@@ -60,10 +59,7 @@ const Logo = () => {
         }
       }
 
-  `}</style>
-
-
-
+    `}</style>
     </svg>
   )
 }

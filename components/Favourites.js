@@ -26,7 +26,6 @@ const Favourites = () => {
 
 
   <style jsx>{`
-  
     section#favourites {
       padding: 3rem;
       border: 1px solid ${colors.primary};
@@ -40,7 +39,6 @@ const Favourites = () => {
       margin-right: 0.75rem;
       color: ${colors.secondary};
       font-size: 1.4rem;
-      /* height: 50px; */
     }
 
     #favourite-items {
@@ -54,10 +52,7 @@ const Favourites = () => {
 
     h3 {
       font-weight: normal;
-      /* text-align: center; */
     }
-
-
 
     /* Media queries */
     @media (max-width: 1150px ) {
@@ -97,7 +92,6 @@ const Favourites = () => {
     }
   
   `}</style>
-
     </section>
   )
 }

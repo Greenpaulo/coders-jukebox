@@ -55,7 +55,7 @@ const WelcomeImage = () => {
 
 
 
-  <style jsx>{`
+    <style jsx>{`
       svg {
         height: 700px;
         width: 800px;
@@ -66,21 +66,20 @@ const WelcomeImage = () => {
         fill: ${colors.primary};
       }
 
-    /* Media queries */
-    @media (max-width: 1024px) {
-      svg#Layer_1 {
-        display: none;
+      /* Media queries */
+      @media (max-width: 1024px) {
+        svg#Layer_1 {
+          display: none;
+        }
       }
-    }
 
-    @media (max-width: 1150px) {
-      svg {
-        display: none;
+      @media (max-width: 1150px) {
+        svg {
+          display: none;
+        }
       }
-    }
-  
-  `}</style>
-
+      
+    `}</style>
     </svg>
   )
 }

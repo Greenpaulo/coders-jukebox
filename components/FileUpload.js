@@ -43,7 +43,6 @@ const FileUpload = ({setEditMode}) => {
 
 
       <style jsx>{`
-      
         #file-upload {
           margin-top: 3rem;
           border-top: 1px solid ${colors.primary};
@@ -82,9 +81,7 @@ const FileUpload = ({setEditMode}) => {
         }
       
       `}</style>
-
     </div> 
-
   )
 }
 

@@ -58,15 +58,12 @@ const UserSearch = () => {
       }
 
       <style jsx>{`
-      
         #user-search {
           width: 50%;
-          /* position: relative; */
         }
 
         #dropdown {
           width: 79%;
-          /* position: relative; */
           margin: auto;
           z-index: 3;
         }
@@ -81,23 +78,13 @@ const UserSearch = () => {
           border-radius: 5px;
           box-shadow: 10px 10px 45px -10px rgba(66,9,66,0.74);
           position: absolute;
-          /* top: -10px; */
-          /* z-index: 200; */
-
-          /* left: 410px; */
         }
 
         ul {
           list-style: none;
         }
 
-        /* Media queries */
-      @media (max-width: 1150px) {
-        /* #search-results {
-          width: 400px;
-        } */
-      } 
-
+      /* Media queries */
       @media (max-width: 1100px) {
         #search-results {
           width: 38vw ;
@@ -219,7 +206,6 @@ const UserSearch = () => {
         }
       }
       `}</style>
-
     </div>
   )
 }

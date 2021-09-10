@@ -24,12 +24,8 @@ const PlayList = ({profileUser }) => {
 
 
     <style jsx>{`
-
-
-    
       section#playlist {
         margin: 3rem auto;
-        /* padding: 3rem; */
         border: 1px solid ${colors.primary};
         border-radius: 10px;
         color: white;
@@ -37,10 +33,7 @@ const PlayList = ({profileUser }) => {
       }
 
       #playlist-header {
-        /* display: flex; */
         background: ${colors.gradient};
-        /* margin: 2rem 0; */
-        /* height: 100%; */
         padding: 2rem;
         border-radius: 10px 10px 0 0;
         color: white;
@@ -51,7 +44,6 @@ const PlayList = ({profileUser }) => {
       }
     
     `}</style>
-      
     </section>
   )
 }

@@ -33,7 +33,6 @@ const FavouriteItem = ({id}) => {
 
   return (
     <div id="favourite-item">
-      {/* <h4>Avatar</h4> */}
       <div id="avatar">
         {favUser.profilePhotoFilename === null &&
         <div className="crop">
@@ -43,7 +42,6 @@ const FavouriteItem = ({id}) => {
             </a>
           </Link>
         </div>
-        
         } 
 
         {favUser.profilePhotoFilename !== null && favUser.profilePhotoFilename !== '' && favUser.profilePhotoFilename !== undefined &&
@@ -70,7 +68,6 @@ const FavouriteItem = ({id}) => {
 
       
       <style jsx>{`
-      
         #favourite-item {
           margin: 0 1rem;
           border-radius: 5px;
@@ -142,12 +139,7 @@ const FavouriteItem = ({id}) => {
           }
         }
       
-      
       `}</style>
-
-
-
-
     </div>
   )
 }

@@ -9,13 +9,12 @@ const Footer = () => {
       <h4>CODETUNES</h4>
       <h4>&copy; {year}</h4>
 
-    <style jsx>{`
 
+    <style jsx>{`
       footer {
         color: white;
         text-align: center;
         padding: 1.2rem;
-        /* margin-top: 2rem; */
         background: ${colors.reverseGradient};
       }
 
@@ -23,11 +22,7 @@ const Footer = () => {
         font-weight: normal;
       }
     
-    
     `}</style>
-
-
-
     </footer>
   )
 }
