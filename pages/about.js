@@ -41,7 +41,7 @@ const About = () => {
         <p>If you like this site then check out my others:</p>
           <ul>
             <li className="link">
-              <a href="https://blissful-sinoussi-d8e11c.netlify.app" target="_blank">
+              <a href="https://paul-bingham.netlify.app/" target="_blank">
                   <div className="crop">
                     <img src='/portfolio.png' />
                   </div>
